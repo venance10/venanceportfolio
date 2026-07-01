@@ -175,6 +175,60 @@ section:nth-child(even){background:var(--navy2)}
 .art-date{font-size:11px;color:var(--gray);margin-bottom:10px}
 .art-title{font-family:var(--f-head);font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.3}
 
+/* CONNAISSANCES & AFFICHES */
+.know-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.know-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .3s}
+.know-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px)}
+.know-cat{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;background:rgba(201,168,76,.1);color:var(--gold);border-radius:4px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.know-title{font-family:var(--f-head);font-size:22px;font-weight:700;color:var(--white);margin-bottom:14px}
+.know-body{font-size:14px;color:var(--text);line-height:1.7}
+.know-body h1,.know-body h2,.know-body h3{font-family:var(--f-head);color:var(--white);margin:16px 0 8px;line-height:1.3}
+.know-body h1{font-size:18px}.know-body h2{font-size:16px}.know-body h3{font-size:15px}
+.know-body p{margin-bottom:12px}
+.know-body ul,.know-body ol{margin:0 0 16px 20px}
+.know-body li{margin-bottom:4px}
+.know-body strong{color:var(--gold)}
+.know-body a{color:var(--gold2);text-decoration:underline}
+.know-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.know-body th,.know-body td{border:1px solid var(--border);padding:8px;text-align:left}
+.know-body th{background:var(--navy2);color:var(--white)}
+
+.posters-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.poster-card{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.poster-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px)}
+.poster-img-container{width:100%;aspect-ratio:3/4;background:var(--navy3);overflow:hidden;position:relative}
+.poster-img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.poster-card:hover .poster-img{transform:scale(1.04)}
+.poster-det{padding:24px;flex:1;display:flex;flex-direction:column}
+.poster-meta{display:flex;justify-content:between;align-items:center;font-size:11px;color:var(--gray);margin-bottom:12px;gap:8px}
+.poster-circ{background:rgba(201,168,76,.12);color:var(--gold);padding:2px 8px;border-radius:4px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+.poster-title{font-family:var(--f-head);font-size:19px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3}
+.poster-desc{font-size:13.5px;color:var(--gray);line-height:1.6;margin-bottom:20px;flex:1}
+.poster-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.poster-btns .btn{padding:10px;font-size:12.5px;justify-content:center;border-radius:6px}
+
+/* WYSIWYG Editor */
+.wysiwyg-container{border:1px solid var(--border);border-radius:8px;background:var(--navy3);overflow:hidden}
+.wysiwyg-toolbar{display:flex;flex-wrap:wrap;gap:4px;padding:8px;background:var(--navy2);border-bottom:1px solid var(--border)}
+.wysiwyg-btn{background:transparent;border:1px solid transparent;color:var(--gray);padding:5px 10px;border-radius:4px;cursor:pointer;font-size:12px;font-weight:600;transition:all .2s}
+.wysiwyg-btn:hover{color:var(--white);background:var(--navy3);border-color:var(--border)}
+.wysiwyg-btn select{background:var(--navy3);color:var(--text);border:1px solid var(--border);font-size:11px;padding:2px;outline:none;border-radius:3px}
+.wysiwyg-editor{min-height:160px;max-height:320px;overflow-y:auto;padding:16px;color:var(--white);outline:none;font-size:14px;line-height:1.6}
+.wysiwyg-editor h1,.wysiwyg-editor h2,.wysiwyg-editor h3{margin:12px 0 6px;color:var(--white)}
+.wysiwyg-editor p{margin-bottom:8px}
+.wysiwyg-editor ul,.wysiwyg-editor ol{margin-left:20px;margin-bottom:12px}
+.wysiwyg-editor table{width:100%;border-collapse:collapse;margin:12px 0}
+.wysiwyg-editor th,.wysiwyg-editor td{border:1px solid var(--border);padding:6px}
+
+/* Lightbox */
+#poster-lightbox{display:none;position:fixed;inset:0;z-index:10000;background:rgba(5,11,20,.95);backdrop-filter:blur(12px);justify-content:center;align-items:center;padding:20px}
+#poster-lightbox.open{display:flex}
+.lightbox-content{position:relative;max-width:90vw;max-height:85vh;display:flex;flex-direction:column;align-items:center}
+.lightbox-img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:6px;box-shadow:0 24px 48px rgba(0,0,0,.6)}
+.lightbox-caption{color:var(--white);font-family:var(--f-head);font-size:18px;font-weight:700;margin-top:16px;text-align:center}
+.lightbox-close{position:absolute;top:-45px;right:0;background:transparent;border:none;color:var(--gray);font-size:28px;cursor:pointer;transition:color .2s}
+.lightbox-close:hover{color:var(--gold)}
+
 /* CONTACT */
 #contact{text-align:center}
 .contact-desc{font-size:17px;color:var(--text);max-width:520px;margin:0 auto 48px;line-height:1.8}
@@ -320,6 +374,8 @@ footer em{color:var(--gold);font-style:normal}
     <a href="#projects">Projets</a>
     <a href="#skills">Compétences</a>
     <a href="#parcours">Parcours</a>
+    <a href="#connaissances">Connaissances</a>
+    <a href="#affiches">Affiches</a>
     <a href="#contact">Contact</a>
     <a href="cv.pdf" class="nav-cv" download aria-label="Télécharger le CV PDF">⬇ CV</a>
     <div class="lang-toggle" role="group" aria-label="Langue">
@@ -408,6 +464,22 @@ footer em{color:var(--gold);font-style:normal}
   </div>
 </section>
 
+<!-- CONNAISSANCES -->
+<section id="connaissances" aria-labelledby="know-heading">
+  <div class="s-tag" id="know-tag">CONNAISSANCES</div>
+  <h2 class="s-title" id="know-heading">Base de Connaissances</h2>
+  <p class="s-sub" id="know-sub">Fiches de synthèses, concepts clés et documentations techniques partagées.</p>
+  <div class="know-grid fu" id="know-grid"></div>
+</section>
+
+<!-- AFFICHES -->
+<section id="affiches" aria-labelledby="posters-heading">
+  <div class="s-tag" id="posters-tag">AFFICHES</div>
+  <h2 class="s-title" id="posters-heading">Galerie d'Affiches</h2>
+  <p class="s-sub" id="posters-sub">Créations visuelles, supports de sensibilisation et infographies.</p>
+  <div class="posters-grid fu" id="posters-grid"></div>
+</section>
+
 <!-- VEILLE (masquée si vide) -->
 <section id="articles" aria-labelledby="articles-heading">
   <div class="s-tag" id="articles-tag">VEILLE CYBERSÉCURITÉ</div>
@@ -434,6 +506,15 @@ footer em{color:var(--gold);font-style:normal}
 <div id="admin-trigger" title="Administration" role="button" tabindex="0" aria-label="Ouvrir le panel d'administration" aria-haspopup="dialog">⚙</div>
 <div id="toast" role="alert" aria-live="polite"></div>
 
+<!-- POSTER LIGHTBOX -->
+<div id="poster-lightbox" role="dialog" aria-modal="true" onclick="closeLightbox()">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img src="" alt="" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
 <!-- ADMIN PANEL -->
 <div id="admin-overlay" role="dialog" aria-modal="true" aria-labelledby="adm-title">
   <div id="admin-panel">
@@ -455,691 +536,977 @@ footer em{color:var(--gold);font-style:normal}
         <div class="adm-title">⚙ Administration</div>
         <button class="adm-close" id="btn-close-admin" aria-label="Fermer">✕</button>
       </div>
-      <div class="adm-tabs" role="tablist">
-        <button class="adm-tab active" data-tab="t-github" role="tab" aria-selected="true">🔗 GitHub</button>
-        <button class="adm-tab" data-tab="t-infos" role="tab" aria-selected="false">Infos</button>
-        <button class="adm-tab" data-tab="t-services" role="tab" aria-selected="false">Services</button>
-        <button class="adm-tab" data-tab="t-projects" role="tab" aria-selected="false">Projets</button>
-        <button class="adm-tab" data-tab="t-skills" role="tab" aria-selected="false">Compétences</button>
-        <button class="adm-tab" data-tab="t-parcours" role="tab" aria-selected="false">Parcours</button>
-        <button class="adm-tab" data-tab="t-contact" role="tab" aria-selected="false">Contact</button>
+      <div class="adm-tabs" id="adm-tabs-container">
+        <button class="adm-tab active" onclick="switchTab('config')">Configuration</button>
+        <button class="adm-tab" onclick="switchTab('services')">Services</button>
+        <button class="adm-tab" onclick="switchTab('projects')">Projets</button>
+        <button class="adm-tab" onclick="switchTab('skills')">Compétences</button>
+        <button class="adm-tab" onclick="switchTab('parcours')">Parcours</button>
+        <button class="adm-tab" onclick="switchTab('connaissances')">Connaissances</button>
+        <button class="adm-tab" onclick="switchTab('affiches')">Affiches</button>
       </div>
+
       <div class="adm-body">
-
-        <!-- GITHUB -->
-        <div class="adm-sec active" id="t-github" role="tabpanel">
+        <!-- CONFIG TAB -->
+        <div id="sec-config" class="adm-sec active">
           <div class="github-box">
-            <div class="github-box-title">🔑 Connexion GitHub <span class="github-status none" id="gh-status-badge">Non configuré</span></div>
-            <p style="font-size:13px;color:var(--gray);margin-bottom:16px;line-height:1.7">Sauvegardez vos données dans <strong style="color:var(--white)">data.json</strong> sur votre repo GitHub Pages.</p>
-            <div style="display:flex;flex-direction:column;gap:12px">
-              <div class="f-group"><div class="f-label">Username GitHub</div><input class="f-input" id="gh-user" placeholder="venance10" autocomplete="off"></div>
-              <div class="f-group"><div class="f-label">Nom du repo</div><input class="f-input" id="gh-repo" placeholder="venanceportfolio" autocomplete="off"></div>
-              <div class="f-group">
-                <div class="f-label">Personal Access Token (ghp_...)</div>
-                <input class="f-input" id="gh-token" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxx" autocomplete="off">
-                <div class="f-hint warn">⚠ Token stocké en sessionStorage (session uniquement, jamais en clair dans le code).</div>
+            <div class="github-box-title">Synchronisation GitHub <span id="gh-status" class="github-status none">Non configuré</span></div>
+            <div class="f-row">
+              <div class="f-group"><label class="f-label">Token Personnel (PAT)</label><input type="password" id="cfg-token" class="f-input" placeholder="ghp_..."></div>
+              <div class="f-group"><label class="f-label">Dépôt (username/repo)</label><input type="text" id="cfg-repo" class="f-input" placeholder="venance10/venanceportfolio"></div>
+            </div>
+            <div style="margin-top:12px"><button class="ab ab-gold" onclick="testAndSaveGitHub()">Vérifier &amp; Connecter</button></div>
+          </div>
+          <div class="f-group"><label class="f-label">Mot de passe d'administration</label><input type="password" id="cfg-pass" class="f-input" placeholder="Nouveau mot de passe..."></div>
+          <div style="margin-top:10px"><button class="ab ab-gold" onclick="saveGlobalConfig()">Sauvegarder les paramètres</button></div>
+        </div>
+
+        <!-- SERVICES TAB -->
+        <div id="sec-services" class="adm-sec">
+          <input type="hidden" id="svc-id">
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Icône (Emoji)</label><input type="text" id="svc-icon" class="f-input" placeholder="🛡️"></div>
+            <div class="f-group"><label class="f-label">Titre (FR)</label><input type="text" id="svc-title-fr" class="f-input"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Titre (EN)</label><input type="text" id="svc-title-en" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Description (FR)</label><textarea id="svc-desc-fr" class="f-ta"></textarea></div>
+          </div>
+          <div class="f-groupFull"><label class="f-label">Description (EN)</label><textarea id="svc-desc-en" class="f-ta"></textarea></div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="saveService()">Enregistrer</button><button class="ab ab-2nd" onclick="clearServiceForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-services-list"></div>
+        </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="sec-projects" class="adm-sec">
+          <input type="hidden" id="p-id">
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Badge / Type</label><input type="text" id="p-badge" class="f-input" placeholder="Pentest / GRC..."></div>
+            <div class="f-group"><label class="f-label">Date</label><input type="text" id="p-date" class="f-input" placeholder="Mars 2026"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Nom du Projet (FR)</label><input type="text" id="p-name-fr" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Nom du Projet (EN)</label><input type="text" id="p-name-en" class="f-input"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Organisation / Contexte (FR)</label><input type="text" id="p-org-fr" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Organisation (EN)</label><input type="text" id="p-org-en" class="f-input"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Points clés (FR, un par ligne)</label><textarea id="p-points-fr" class="f-ta" placeholder="Débuter par ! pour un point critique"></textarea></div>
+            <div class="f-group"><label class="f-label">Points clés (EN, un par ligne)</label><textarea id="p-points-en" class="f-ta"></textarea></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Technologies / Chips (Séparées par des virgules)</label><input type="text" id="p-chips" class="f-input" placeholder="Burp Suite, Nmap, OWASP"></div>
+          </div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="saveProject()">Enregistrer</button><button class="ab ab-2nd" onclick="clearProjectForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-projects-list"></div>
+        </div>
+
+        <!-- SKILLS TAB -->
+        <div id="sec-skills" class="adm-sec">
+          <input type="hidden" id="sk-id">
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Groupe de compétences</label><select id="sk-group" class="f-sel"><option value="grc">GRC &amp; Conformité</option><option value="tech">Sécurité Technique &amp; Pentest</option></select></div>
+            <div class="f-group"><label class="f-label">Nom de la compétence (FR)</label><input type="text" id="sk-name-fr" class="f-input"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Nom (EN)</label><input type="text" id="sk-name-en" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Pourcentage (0-100)</label><input type="number" id="sk-pct" class="f-input" min="0" max="100"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Couleur Rouge/Alerte ?</label><select id="sk-red" class="f-sel"><option value="0">Or (Standard)</option><option value="1">Rouge (Alerte/Critique)</option></select></div>
+          </div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="saveSkill()">Enregistrer</button><button class="ab ab-2nd" onclick="clearSkillForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-skills-list"></div>
+        </div>
+
+        <!-- PARCOURS TAB -->
+        <div id="sec-parcours" class="adm-sec">
+          <input type="hidden" id="pc-id">
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Type</label><select id="pc-type" class="f-sel"><option value="edu">Formation / Éducation</option><option value="cert">Certification</option></select></div>
+            <div class="f-group"><label class="f-label">Date / Période</label><input type="text" id="pc-date" class="f-input" placeholder="2023 — Présent"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Intitulé (FR)</label><input type="text" id="pc-name-fr" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Intitulé (EN)</label><input type="text" id="pc-name-en" class="f-input"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Établissement / Organisme (FR)</label><input type="text" id="pc-sub-fr" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Établissement (EN)</label><input type="text" id="pc-sub-en" class="f-input"></div>
+          </div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="saveParcours()">Enregistrer</button><button class="ab ab-2nd" onclick="clearParcoursForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-parcours-list"></div>
+        </div>
+
+        <!-- CONNAISSANCES TAB -->
+        <div id="sec-connaissances" class="adm-sec">
+          <input type="hidden" id="know-id-form">
+          <div class="f-row">
+            <div class="f-group"><label class="f-label">Titre</label><input type="text" id="know-title-input" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Catégorie</label><input type="text" id="know-cat-input" class="f-input" placeholder="Cryptographie, GRC, Web..."></div>
+          </div>
+          <div class="f-group full">
+            <label class="f-label">Contenu Riche (WYSIWYG - Supporte le Copier/Coller direct depuis ChatGPT/Claude/Gemini)</label>
+            <div class="wysiwyg-container">
+              <div class="wysiwyg-toolbar">
+                <button type="button" class="wysiwyg-btn" onclick="execEditorCmd('bold')"><b>B</b></button>
+                <button type="button" class="wysiwyg-btn" onclick="execEditorCmd('italic')"><i>I</i></button>
+                <button type="button" class="wysiwyg-btn" onclick="execEditorCmd('insertUnorderedList')">• Liste</button>
+                <button type="button" class="wysiwyg-btn" onclick="execEditorCmd('insertOrderedList')">1. Liste</button>
+                <button type="button" class="wysiwyg-btn" onclick="let url=prompt('URL:'); if(url) execEditorCmd('createLink', url)">Lien</button>
+                <select onchange="execEditorCmd('formatBlock', this.value); this.value='';">
+                  <option value="">Titres</option>
+                  <option value="<h1>">Titre 1</option>
+                  <option value="<h2>">Titre 2</option>
+                  <option value="<h3>">Titre 3</option>
+                  <option value="<p>">Paragraphe</option>
+                </select>
+                <select onchange="execEditorCmd('foreColor', this.value); this.value='';">
+                  <option value="">Couleurs</option>
+                  <option value="#F4F1EC">Blanc</option>
+                  <option value="#C9A84C">Or</option>
+                  <option value="#8A9BB0">Gris</option>
+                  <option value="#FF6060">Rouge</option>
+                </select>
               </div>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <button class="ab ab-gold" id="btn-gh-save">💾 Sauvegarder config</button>
-                <button class="ab ab-2nd" id="btn-gh-test">🔍 Tester connexion</button>
-              </div>
+              <div id="know-editor" class="wysiwyg-editor" contenteditable="true" placeholder="Rédigez ou collez votre contenu ici..."></div>
             </div>
           </div>
-          <div class="risk-box">
-            <div class="risk-icon">⚠️</div>
-            <div class="risk-text">
-              <strong>Risque documenté.</strong> La vérification du mot de passe se fait côté client via SHA-256. Un attaquant avec accès au bundle JS peut tenter une attaque hors-ligne sur le hash.<br>
-              <strong>Migration recommandée :</strong> Cloudflare Worker ou Vercel Edge Function qui détient le token GitHub côté serveur.
-            </div>
-          </div>
-          <div style="background:var(--navy3);border:1px solid var(--border);border-radius:12px;padding:20px">
-            <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:12px">📋 Créer votre token GitHub</div>
-            <ol style="font-size:13px;color:var(--gray);line-height:2;padding-left:20px">
-              <li>Allez sur <strong style="color:var(--gold)">github.com/settings/tokens</strong></li>
-              <li>Cliquez <strong style="color:var(--white)">"Generate new token (classic)"</strong></li>
-              <li>Nom : <em style="color:var(--white)">portfolio-admin</em></li>
-              <li>Cochez uniquement ✅ <strong style="color:var(--white)">repo</strong></li>
-              <li>Générez et copiez le token</li>
-            </ol>
-          </div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="saveKnowledge()">Enregistrer</button><button class="ab ab-2nd" onclick="clearKnowledgeForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-know-list"></div>
         </div>
 
-        <!-- INFOS -->
-        <div class="adm-sec" id="t-infos" role="tabpanel">
-          <div class="save-progress" id="prog-infos"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+        <!-- AFFICHES TAB -->
+        <div id="sec-affiches" class="adm-sec">
+          <input type="hidden" id="poster-id-form">
           <div class="f-row">
-            <div class="f-group"><div class="f-label">Localisation</div><input class="f-input" id="f-loc"></div>
-            <div class="f-group"><div class="f-label">Disponibilité</div><input class="f-input" id="f-avail"></div>
+            <div class="f-group"><label class="f-label">Titre de l'affiche</label><input type="text" id="poster-title-input" class="f-input"></div>
+            <div class="f-group"><label class="f-label">Date de création</label><input type="text" id="poster-date-input" class="f-input" placeholder="Ex: Janvier 2026"></div>
           </div>
           <div class="f-row">
-            <div class="f-group"><div class="f-label">Spécialité</div><input class="f-input" id="f-spec"></div>
-            <div class="f-group"><div class="f-label">Langues</div><input class="f-input" id="f-langs"></div>
+            <div class="f-group"><label class="f-label">Circonstance / Événement</label><input type="text" id="poster-circ-input" class="f-input" placeholder="Ex: Hackathon, Sensibilisation..."></div>
+            <div class="f-group"><label class="f-label">Image (Upload direct)</label><input type="file" id="poster-file-input" class="f-input" accept="image/*" onchange="handlePosterUpload(this)"><input type="hidden" id="poster-img-base64"></div>
           </div>
-          <div class="f-group"><div class="f-label">Description principale (hero)</div><textarea class="f-ta" id="f-hero"></textarea></div>
-          <div class="f-group"><div class="f-label">Texte "À propos" (ligne vide = paragraphe)</div><textarea class="f-ta" id="f-about" style="min-height:120px"></textarea></div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Grande stat — Chiffre</div><input class="f-input" id="f-s1n"></div>
-            <div class="f-group"><div class="f-label">Grande stat — Description</div><input class="f-input" id="f-s1l"></div>
-          </div>
-          <button class="ab ab-gold" id="btn-save-infos">💾 Enregistrer &amp; publier</button>
+          <div class="f-group full"><label class="f-label">Description</label><textarea id="poster-desc-input" class="f-ta"></textarea></div>
+          <div style="display:flex;gap:10px"><button class="ab ab-gold" onclick="savePoster()">Enregistrer</button><button class="ab ab-2nd" onclick="clearPosterForm()">Annuler</button></div>
+          <div class="adm-div"></div><div class="item-list" id="adm-poster-list"></div>
         </div>
 
-        <!-- SERVICES -->
-        <div class="adm-sec" id="t-services" role="tabpanel">
-          <div class="save-progress" id="prog-services"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
-          <div class="item-list" id="svc-list-adm"></div>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau service</div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Icône</div><input class="f-input" id="s-ico" placeholder="🔍" maxlength="4"></div>
-            <div class="f-group"><div class="f-label">Nom (FR)</div><input class="f-input" id="s-nom"></div>
-          </div>
-          <div class="f-group"><div class="f-label">Description (FR)</div><textarea class="f-ta" id="s-desc"></textarea></div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Name (EN)</div><input class="f-input" id="s-nome"></div>
-            <div class="f-group"><div class="f-label">Description (EN)</div><input class="f-input" id="s-desce"></div>
-          </div>
-          <button class="ab ab-gold" id="btn-add-svc">➕ Ajouter &amp; publier</button>
-        </div>
-
-        <!-- PROJETS -->
-        <div class="adm-sec" id="t-projects" role="tabpanel">
-          <div class="save-progress" id="prog-projects"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
-          <div class="item-list" id="prj-list-adm"></div>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau projet</div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Titre (FR)</div><input class="f-input" id="p-tit"></div>
-            <div class="f-group"><div class="f-label">Title (EN)</div><input class="f-input" id="p-tite"></div>
-          </div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Organisation</div><input class="f-input" id="p-org"></div>
-            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="p-date" placeholder="2026"></div>
-          </div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Badge</div><input class="f-input" id="p-badge" placeholder="Pentest Web, GRC…"></div>
-            <div class="f-group">
-              <div class="f-label">Style badge</div>
-              <select class="f-sel" id="p-badge-style">
-                <option value="">Standard (doré)</option>
-                <option value="pentest">Pentest (rouge)</option>
-                <option value="hack">Hackathon (bleu)</option>
-              </select>
-            </div>
-          </div>
-          <div class="f-group"><div class="f-label">Points (FR) — une ligne = un point</div><textarea class="f-ta" id="p-bul"></textarea></div>
-          <div class="f-group"><div class="f-label">Points (EN)</div><textarea class="f-ta" id="p-bule"></textarea></div>
-          <div class="f-group"><div class="f-label">Tags (séparés par virgules)</div><input class="f-input" id="p-tags" placeholder="ISO 27001, OWASP, RGPD"></div>
-          <button class="ab ab-gold" id="btn-add-prj">➕ Ajouter &amp; publier</button>
-        </div>
-
-        <!-- COMPÉTENCES -->
-        <div class="adm-sec" id="t-skills" role="tabpanel">
-          <div class="save-progress" id="prog-skills"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
-          <div class="item-list" id="sk-list-adm"></div>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvelle compétence</div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Nom</div><input class="f-input" id="sk-n" placeholder="Pentest Web"></div>
-            <div class="f-group"><div class="f-label">Catégorie</div><input class="f-input" id="sk-c" placeholder="Sécurité Offensive"></div>
-          </div>
-          <div class="f-group"><div class="f-label">Niveau (0–100)</div><input class="f-input" id="sk-l" type="number" min="0" max="100" placeholder="78"></div>
-          <button class="ab ab-gold" id="btn-add-sk">➕ Ajouter compétence</button>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvel outil</div>
-          <div class="f-group"><input class="f-input" id="tk-n" placeholder="Burp Suite, SQLMap…"><div class="f-hint">Un outil à la fois</div></div>
-          <button class="ab ab-gold" id="btn-add-tool">➕ Ajouter outil &amp; publier</button>
-        </div>
-
-        <!-- PARCOURS -->
-        <div class="adm-sec" id="t-parcours" role="tabpanel">
-          <div class="save-progress" id="prog-parcours"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">📚 Formations</div>
-          <div class="item-list" id="edu-list-adm"></div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Intitulé</div><input class="f-input" id="e-n"></div>
-            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="e-d" placeholder="2023 – présent"></div>
-          </div>
-          <div class="f-group"><div class="f-label">Établissement</div><input class="f-input" id="e-o"></div>
-          <button class="ab ab-gold" id="btn-add-edu">➕ Ajouter formation</button>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">🏅 Certifications</div>
-          <div class="item-list" id="cert-list-adm"></div>
-          <div class="f-row">
-            <div class="f-group"><div class="f-label">Nom</div><input class="f-input" id="c-n"></div>
-            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="c-d" placeholder="2025"></div>
-          </div>
-          <div class="f-group"><div class="f-label">Organisme</div><input class="f-input" id="c-o"></div>
-          <button class="ab ab-gold" id="btn-add-cert">➕ Ajouter cert. &amp; publier</button>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="adm-sec" id="t-contact" role="tabpanel">
-          <div class="save-progress" id="prog-contact"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
-          <div class="item-list" id="ct-list-adm"></div>
-          <div class="adm-div"></div>
-          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau contact</div>
-          <div class="f-row">
-            <div class="f-group">
-              <div class="f-label">Type</div>
-              <select class="f-sel" id="ct-type">
-                <option value="email">Email</option>
-                <option value="phone">Téléphone</option>
-                <option value="linkedin">LinkedIn</option>
-                <option value="github">GitHub</option>
-                <option value="whatsapp">WhatsApp</option>
-                <option value="autre">Autre</option>
-              </select>
-            </div>
-            <div class="f-group"><div class="f-label">Libellé affiché</div><input class="f-input" id="ct-lbl" placeholder="vhoundete@gmail.com"></div>
-          </div>
-          <div class="f-group"><div class="f-label">Lien cliquable</div><input class="f-input" id="ct-lnk" placeholder="mailto:… ou https://…"></div>
-          <button class="ab ab-gold" id="btn-add-ct">➕ Ajouter &amp; publier</button>
-        </div>
-
+      </div>
+      <div class="adm-hd" style="border-top:1px solid var(--border);border-bottom:none;justify-content:flex-end;gap:12px;padding:14px 28px">
+        <span class="save-progress" id="save-progress">⚡ Synchronisation GitHub en cours...</span>
+        <button class="ab ab-gold" onclick="publishData()">🚀 Publier les modifications</button>
       </div>
     </div>
+
   </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════════
-   SECURITE — MOT DE PASSE ADMIN (Hash SHA-256)
-
-   ⚠ RISQUE DOCUMENTE : Comparaison côté client uniquement.
-     Un attaquant avec accès au bundle JS peut tenter une attaque
-     hors-ligne sur le hash. Ce mécanisme bloque les curieux, pas
-     un attaquant ciblé avec des ressources.
-
-   MIGRATION RECOMMANDEE pour déploiement public :
-   → Cloudflare Worker / Vercel Edge Function qui détient le token
-     GitHub côté serveur et expose /api/save protégé par password.
-     Zéro token ni hash exposé côté client.
-
-   CHANGER LE MOT DE PASSE :
-   1. Ouvrez la console du navigateur sur votre site.
-   2. Exécutez : generatePassHash('votre_nouveau_mdp')
-   3. Copiez le hash affiché et remplacez PASS_HASH ci-dessous.
-   OU via PowerShell :
-     $b=[System.Text.Encoding]::UTF8.GetBytes("votre_mdp")
-     [BitConverter]::ToString([System.Security.Cryptography.SHA256]::Create().ComputeHash($b)).Replace("-","").ToLower()
-═══════════════════════════════════════════════════════════════════ */
-const PASS_HASH = '3d2d940665a34415e08f6814661e6898a6f8fd7035d9a8093f8f747b18513fc2';
-
-async function generatePassHash(pw) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
-  const hash = [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2,'0')).join('');
-  console.log('%c[Admin] Hash SHA-256 : ' + hash, 'color:#C9A84C;font-weight:bold');
-  return hash;
-}
-async function verifyPass(input) {
-  return (await generatePassHash(input)) === PASS_HASH;
-}
-
-/* ═══ DONNÉES PAR DÉFAUT ═══ */
+// DONNÉES PAR DÉFAUT (FALLBACK COMPLET)
 const DEF = {
-  infos: {
-    loc:   "Abomey-Calavi, Bénin · Travail à distance possible",
-    avail: "Freelance · Stage académique · Missions GRC & Pentest",
-    spec:  "Gouvernance SI · Audit & Pentest Web · Conformité ISO 27001",
-    langs: "Français (courant) · Anglais (intermédiaire B1)",
-    hero:  "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité — avec des livrables concrets et professionnels.",
-    about: "Je suis Venance Arnolde Yéminvènon Houndété, étudiant en Licence 3 Sécurité Informatique à l'IFRI (Université d'Abomey-Calavi, Bénin), aspirant RSSI.\n\nJ'ai une expérience pratique en audit GRC et en tests d'intrusion web black-box réels. J'ai conduit des audits pour l'Université d'Abomey-Calavi (PSSI-UAC v2.0, 60 000 utilisateurs) et pour GRAFNET Consulting — où j'ai identifié des vulnérabilités critiques sur des plateformes e-commerce en production.\n\nDisponible pour des missions freelance ou un stage académique en cybersécurité offensive et défensive, gestion des risques et conformité.",
-    s1n: "18+",
-    s1l: "Vulnérabilités identifiées lors d'audits web réels"
+  lang: 'fr',
+  config: { password: 'admin', githubToken: '', githubRepo: '' },
+  hero: {
+    titles_fr: ["Étudiant en Sécurité Informatique", "Auditeur GRC débutant", "Passionné de Pentest Web"],
+    titles_en: ["IT Security Student", "Junior GRC Auditor", "Web Pentesting Enthusiast"],
+    desc_fr: "Actuellement en Licence 3 à l'IFRI (UAC), je me spécialise dans la gouvernance, la gestion des risques, la conformité (ISO 27001) et la sécurité offensive de premier niveau.",
+    desc_en: "Currently in my 3rd year at IFRI (UAC), specializing in governance, risk management, compliance (ISO 27001) and entry-level offensive security."
+  },
+  about: {
+    fr: "<p>Je m'appelle Venance Arnolde Yéminvènon Houndété. Passionné par l'écosystème de la sécurité numérique, je conjugue une solide formation théorique universitaire avec une démarche d'apprentissage pratique rigoureuse (recherche de vulnérabilités, analyses documentaires GRC, étude approfondie de référentiels professionnels).</p><p>Mon objectif actuel est de mettre mes compétences au service des entreprises locales et régionales pour évaluer leur posture de sécurité, rédiger leurs politiques directrices et tester la résilience de leurs applications web.</p>",
+    en: "<p>I am Venance Arnolde Yéminvènon Houndété. Passionate about the digital security ecosystem, I combine a solid academic foundation with a rigorous practical hands-on approach (vulnerability research, GRC documentation audits, deep study of compliance frameworks).</p><p>My current objective is to help organizations evaluate their security posture, draft guiding policies and test the technical resilience of their web ecosystems.</p>",
+    info_fr: [
+      {label: "Localisation", val: "Abomey-Calavi, Bénin 🇧🇯"},
+      {label: "Spécialités", val: "Audit GRC, Pentest Web Black-box"},
+      {label: "Statut actuel", val: "Étudiant L3 (IFRI) & Freelance"},
+      {label: "Email", val: "contact@venancehoundete.com"}
+    ],
+    info_en: [
+      {label: "Location", val: "Abomey-Calavi, Benin 🇧🇯"},
+      {label: "Specialties", val: "GRC Auditing, Black-box Web Pentesting"},
+      {label: "Current Status", val: "L3 Student (IFRI) & Freelancer"},
+      {label: "Email", val: "contact@venancehoundete.com"}
+    ]
   },
   services: [
-    {ico:"⚔️",nom:"Pentest Web (Black-box)",desc:"Test d'intrusion boîte noire sur vos applications web : reconnaissance, énumération, tests OWASP Top 10 & API Security Top 10, rapport détaillé avec plan de remédiation priorisé.",nome:"Web Penetration Testing (Black-box)",desce:"Black-box intrusion testing: reconnaissance, enumeration, OWASP Top 10 & API Security Top 10, detailed report with prioritized remediation plan."},
-    {ico:"🔍",nom:"Audit de Sécurité & GRC",desc:"Analyse des écarts sur vos procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin. Rapport d'écarts et recommandations correctives.",nome:"Security Audit & GRC",desce:"Gap analysis on your security procedures: ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Benin. Gaps report and corrective recommendations."},
-    {ico:"📋",nom:"Politique de Sécurité (PSSI)",desc:"Rédaction du document officiel de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements. Conforme RGPD / Code du Numérique du Bénin.",nome:"Security Policy (ISSP)",desce:"Drafting your IS governance document: security rules, RACI matrix, KPIs, processing register. GDPR / Benin Digital Code compliant."},
-    {ico:"📊",nom:"Conformité ISO 27001 & RGPD",desc:"Comparaison de votre situation aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin, feuille de route de mise en conformité.",nome:"ISO 27001 & GDPR Compliance",desce:"Comparison against ISO 27001:2022, GDPR / Benin Digital Code analysis, and compliance roadmap."},
-    {ico:"🗺️",nom:"Cartographie & Analyse de risques",desc:"Cartographie complète de votre infrastructure : actifs, données sensibles, points vulnérables. Analyse de risques et matrice de criticité.",nome:"Risk Mapping & Analysis",desce:"Complete infrastructure mapping: assets, sensitive data, vulnerable points. Risk analysis and criticality matrix."},
-    {ico:"🎓",nom:"Formation de vos équipes",desc:"Sessions pratiques pour que vos collaborateurs comprennent les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.",nome:"Team Training",desce:"Practical sessions so your staff understand cyber risks, best practices and incident response procedures."}
+    {id:1, icon:"🛡️", title_fr:"Audit Documentaire GRC", title_en:"GRC Documentation Audit", desc_fr:"Analyse de la conformité de vos processus vis-à-vis de l'ISO 27001 ou de la PSSIE nationale. Rédaction de politiques de sécurité (PSSI) adaptées.", desc_en:"Compliance analysis of your workflows against ISO 27001 frameworks. Writing tailored corporate Information Security Policies (ISP)."},
+    {id:2, icon:"🌐", title_fr:"Tests d'Intrusion Web (Black-box)", title_en:"Web Pentesting (Black-box)", desc_fr:"Recherche active de vulnérabilités applicatives critiques (Top 10 OWASP, injections, défauts d'authentification) sans accès au code source.", desc_en:"Active hunting of critical application bugs (OWASP Top 10, injections, broken auth) without prior source code access."}
   ],
   projects: [
-    {tit:"Audit GRC Documentaire — 27 Procédures SI",tite:"GRC Documentary Audit — 27 IS Procedures",org:"GRAFNET Consulting",date:"Depuis juin 2026",badge:"GRC · Stage",badgeStyle:"",bul:["Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019","Identification des écarts, lacunes documentaires et risques de non-conformité ; recommandations correctives","Vérification des rôles (matrice RACI), contrôles internes, KPI et mécanismes de traçabilité","Production de registres d'écarts et rapports de conformité pour certification ISO 27001 / ISO 20000","Intervention de récupération d'urgence : VPS Ubuntu 24.04 (Odoo 18, Nginx, PostgreSQL, MariaDB, Docker)"],bule:["Compliance analysis of 27 procedures covering ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 and COBIT 2019","Gaps, documentary shortcomings and non-compliance risks identified; corrective recommendations","RACI matrix, internal controls, KPIs and traceability verification","Gap registers and compliance reports for ISO 27001 / ISO 20000 certification","Emergency recovery: Ubuntu 24.04 VPS (Odoo 18, Nginx, PostgreSQL, MariaDB, Docker)"],tags:["ISO 27001:2022","ISO 20000-1","ITIL 4","COBIT 2019","PSSIE","RACI"]},
-    {tit:"Pentest Web Black-box — asofind.com",tite:"Black-box Web Pentest — asofind.com",org:"GRAFNET Consulting — Mission cliente",date:"23 juin 2026",badge:"Pentest Web",badgeStyle:"pentest",bul:["Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB","⚠ CRITIQUE : Exposition de données personnelles (email, téléphone) de 9 comptes via API publique non protégée — violation RGPD / Code du Numérique","5 failles supplémentaires : absence de CSP, fuite Sentry DSN & hash Git, absence de rate limiting","Total : 6 vulnérabilités dont 1 critique — rapport de remédiation priorisé livré"],bule:["Black-box intrusion test: Next.js / Node.js / MongoDB e-commerce platform","⚠ CRITICAL: Personal data exposure (email, phone) of 9 accounts via unprotected public API — GDPR violation","5 additional vulnerabilities: missing CSP, Sentry DSN & Git hash leakage, no rate limiting","Total: 6 vulnerabilities including 1 critical — prioritized remediation report delivered"],tags:["OWASP Top 10","API Security","RGPD","nmap","nikto","sqlmap","whatweb","curl"]},
-    {tit:"Pentest Web Black-box — giftyzi.com",tite:"Black-box Web Pentest — giftyzi.com",org:"GRAFNET Consulting — Mission cliente",date:"17–20 juin 2026",badge:"Pentest Web",badgeStyle:"pentest",bul:["Audit de sécurité : infrastructure Django / Next.js / PostgreSQL / Redis","⚠ CRITIQUE : Mode DEBUG actif en production — exposition de l'infrastructure interne et 3 sous-domaines Grafnet","⚠ CRITIQUE : Collecte massive de données personnelles sans politique de confidentialité — non-conformité RGPD","⚠ CRITIQUE : Sous-domaines exposés et misconfiguration TLS","Total : 12 vulnérabilités dont 3 critiques — recommandations headers & durcissement TLS"],bule:["Security audit: Django / Next.js / PostgreSQL / Redis infrastructure","⚠ CRITICAL: DEBUG mode active in production — internal infrastructure and 3 Grafnet subdomains exposed","⚠ CRITICAL: Mass personal data collection without privacy policy — GDPR non-compliance","⚠ CRITICAL: Exposed subdomains and TLS misconfiguration","Total: 12 vulnerabilities including 3 critical — security headers and TLS hardening recommendations"],tags:["OWASP Top 10","DEBUG","RGPD","Nmap","OWASP ZAP","curl","DevTools"]},
-    {tit:"Audit SI — Université d'Abomey-Calavi",tite:"IS Security Audit — UAC",org:"SPTIC — Université d'Abomey-Calavi",date:"2025–2026",badge:"Audit Réel",badgeStyle:"",bul:["Audit complet : 33 points de contrôle (PSSIE, ISO 27001:2022, Code du Numérique)","27 questions de diagnostic (7 domaines) via Google Forms / Apps Script","12 points critiques dont non-conformité Code du Numérique (données de santé et financières)","Analyse et documentation d'un incident réel (ransomware) : rapport et recommandations"],bule:["Full IS audit: 33 control points (PSSIE, ISO 27001:2022, Digital Code)","27 diagnostic questions (7 domains) via Google Forms / Apps Script","12 critical points including Digital Code non-compliance (health and financial data)","Real incident analysis (ransomware): report and recommendations"],tags:["ISO 27001","PSSIE","Code du Numérique","Audit","Gap Analysis"]},
-    {tit:"PSSI-UAC v2.0 — Première politique de sécurité officielle",tite:"ISSP-UAC v2.0 — First Official Security Policy",org:"SPTIC — Université d'Abomey-Calavi",date:"2025–2026",badge:"Historique",badgeStyle:"",bul:["Premier document de gouvernance SI de l'UAC — une première au Bénin","13 sections, 50+ règles de sécurité codées, validé par le Chef du SPTIC","Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs","Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique"],bule:["First official IS governance document of UAC — a first in Benin","13 sections, 50+ coded security rules, validated by the SPTIC Head","4-phase roadmap over 18–24 months for a 60,000-user IS","Compliant with PSSIE Benin, ISO 27001:2022 and Digital Code"],tags:["PSSI","ISO 27001","Gouvernance","PSSIE Bénin","60 000 utilisateurs"]},
-    {tit:"Plateforme IA Sécurisée — Hackathon AI4BMI",tite:"Secure AI Platform — AI4BMI Hackathon",org:"IFRI / UAC",date:"Fév. 2026",badge:"Hackathon",badgeStyle:"hack",bul:["Plateforme IA sécurisée : chiffrement AES-256-GCM, MFA, anti-brute force, JWT","Documentation technique complète et rapport de sécurité remis au jury","Conforme aux recommandations NIST sur les mots de passe"],bule:["Secure AI platform: AES-256-GCM encryption, MFA, anti-brute force, JWT","Full technical documentation and security report submitted to jury","NIST password compliance"],tags:["Python","Flask","AES-256-GCM","MFA","JWT","NIST"]},
-    {tit:"Hackathon NetBlue — Lutte contre la cybercriminalité",tite:"NetBlue Hackathon — Fighting Cybercrime",org:"IFRI / UAC",date:"2023–2024",badge:"Hackathon",badgeStyle:"hack",bul:["Collecte de preuves numériques et analyse de sources ouvertes (OSINT)","Surveillance d'attaques ciblant des systèmes industriels","Plateformes SIEM professionnelles (ArcSight, QRadar)"],bule:["Digital evidence collection and open-source analysis (OSINT)","Monitoring attacks targeting industrial systems","Professional SIEM platforms (ArcSight, QRadar)"],tags:["OSINT","SIEM","ArcSight","QRadar","Cybercriminalité"]}
+    {id:1, badge:"Audit GRC", date:"Février 2026", name_fr:"Audit Blanc & PSSI pour l'Université d'Abomey-Calavi", name_en:"Mock Audit & Security Policy for UAC", org_fr:"Projet Académique encadré (IFRI)", org_en:"Supervised Academic Project (IFRI)", points_fr:["Évaluation complète sur 33 points de contrôle critiques.","Rédaction intégrale de la PSSI-UAC v2.0 (50+ règles de sécurité).","Identification de 5 risques majeurs liés à la gestion des identités."], points_en:["Complete evaluation on 33 critical controls.","Full drafting of UAC-ISP v2.0 (50+ security directives).","Identification of 5 major identity management risks."], chips:"ISO 27001, PSSIE Bénin, EBIOS RM"},
+    {id:2, badge:"Pentest Web", date:"Janvier 2026", name_fr:"Tests d'intrusion black-box sur plateformes e-commerce", name_en:"Black-box Pentesting on E-Commerce Systems", org_fr:"Laboratoire Personnel & Missions Freelance", org_en:"Personal Lab & Freelance Assignments", points_fr:["!Découverte de 3 injections SQL critiques permettant l'extraction de bases de données.","Contournement de mécanismes d'authentification par force brute et IDOR.","Rédaction de rapports techniques détaillés avec recommandations de remédiation."], points_en:["!Discovery of 3 critical SQL injections allowing database extraction.","Bypassing auth systems using brute-force attacks and IDOR flaws.","Drafting technical exploit reports with precise remediation patches."], chips:"Burp Suite, Nmap, OWASP, SQLMap"}
   ],
   skills: [
-    {n:"Pentest Web Black-box",       c:"Sécurité Offensive", l:78},
-    {n:"OWASP Top 10 / API Security", c:"Sécurité Offensive", l:82},
-    {n:"Reconnaissance & Énumération",c:"Sécurité Offensive", l:75},
-    {n:"Burp Suite",                   c:"Sécurité Offensive", l:72},
-    {n:"OWASP ZAP / Nikto",           c:"Sécurité Offensive", l:75},
-    {n:"SQLMap / WhatWeb / Nmap",     c:"Sécurité Offensive", l:78},
-    {n:"ISO 27001:2022",              c:"Gouvernance & Conformité", l:85},
-    {n:"ISO 20000-1 / ISO 27035",     c:"Gouvernance & Conformité", l:80},
-    {n:"ITIL 4 / COBIT 2019",         c:"Gouvernance & Conformité", l:78},
-    {n:"PSSIE Bénin / Code Numérique",c:"Gouvernance & Conformité", l:88},
-    {n:"Rédaction PSSI & RACI",       c:"Gouvernance & Conformité", l:85},
-    {n:"Gap Analysis / Audit",        c:"Gouvernance & Conformité", l:82},
-    {n:"Analyse réseau (Wireshark)",  c:"Cybersécurité Défensive", l:80},
-    {n:"Chiffrement AES-256-GCM/JWT", c:"Cybersécurité Défensive", l:78},
-    {n:"Kali Linux",                  c:"Cybersécurité Défensive", l:78},
-    {n:"Analyse incidents / SIEM",    c:"Cybersécurité Défensive", l:65},
-    {n:"Python / Flask",              c:"Développement", l:75},
-    {n:"HTML/CSS/JavaScript",         c:"Développement", l:72},
-    {n:"Git / GitHub",                c:"Développement", l:72},
-    {n:"Bash / Linux",                c:"Développement", l:62}
+    {id:1, group:"grc", name_fr:"Analyse des risques (EBIOS RM)", name_en:"Risk Assessment (EBIOS RM)", pct:75, red:0},
+    {id:2, group:"grc", name_fr:"Conformité ISO/IEC 27001", name_en:"ISO/IEC 27001 Compliance", pct:70, red:0},
+    {id:3, group:"tech", name_fr:"Cartographie & Reconnaissance (Nmap)", name_en:"Mapping & Recon (Nmap)", pct:85, red:0},
+    {id:4, group:"tech", name_fr:"Exploitation de failles OWASP Web", name_en:"OWASP Web Bugs Exploitation", pct:80, red:1}
   ],
-  tools:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng","Wireshark","ArcSight","QRadar","Netdata","Python","Flask","Git","JWT","AES-256","bcrypt","curl","OSINT Framework"],
-  toolsOffensive:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng"],
-  edu:[
-    {n:"Licence 3 – Sécurité Informatique (en cours)",o:"IFRI – Université d'Abomey-Calavi, Bénin",d:"2023 – présent"},
-    {n:"Baccalauréat Série D – Mention Bien",o:"Bénin",d:"2023"}
+  tools: [
+    {name:"Burp Suite Pro", red:1}, {name:"Nmap", red:0}, {name:"Metasploit", red:0}, {name:"Wireshark", red:0}, 
+    {name:"SQLMap", red:1}, {name:"Nikto", red:0}, {name:"Linux Kali", red:0}
   ],
-  certs:[
-    {n:"Introduction to Cyber Security",o:"Cisco Networking Academy",d:"2025"},
-    {n:"Internship GRC / Audit SSI",o:"GRAFNET Consulting",d:"2026"}
+  parcours: [
+    {id:1, type:"edu", date:"2023 — Présent", name_fr:"Licence en Sécurité Informatique", name_en:"Bachelor in Computer Security", sub_fr:"Institut de Formation et de Recherche en Informatique (IFRI / UAC)", sub_en:"IFRI / University of Abomey-Calavi"},
+    {id:2, type:"cert", date:"2025", name_fr:"NSE 1 & NSE 2 Network Security Associate", name_en:"NSE 1 & NSE 2 Network Security Associate", sub_fr:"Fortinet Training Institute", sub_en:"Fortinet Training Institute"}
   ],
-  contacts:[
-    {type:"email",   lbl:"vhoundete@gmail.com",            lnk:"mailto:vhoundete@gmail.com"},
-    {type:"whatsapp",lbl:"+229 01 69 95 94 07",            lnk:"https://wa.me/22901699559407"},
-    {type:"linkedin",lbl:"linkedin.com/in/venancehoundete",lnk:"https://linkedin.com/in/venancehoundete"},
-    {type:"github",  lbl:"github.com/venance10",            lnk:"https://github.com/venance10"}
+  connaissances: [
+    {id:1, title:"Introduction à la gestion des risques avec EBIOS RM", category:"GRC", content:"<h3>Comprendre l'essentiel</h3><p>La méthode <strong>EBIOS RM</strong> est le standard pour apprécier et traiter les risques de sécurité numérique. Elle s'articule autour de 5 ateliers stratégiques.</p><ul><li>Atelier 1 : Cadrage et socle de sécurité</li><li>Atelier 2 : Sources de risques</li><li>Atelier 3 : Scénarios stratégiques</li></ul>"}
   ],
-  /* ═══ Veille / Articles : remplir pour activer la section
-    Structure : { titre, titreEn, date, lien, tags:[] }
-  ═══ */
-  articles: []
+  affiches: []
 };
 
-/* ═══ ÉTAT ═══ */
-let D = JSON.parse(JSON.stringify(DEF));
-let lang = 'fr';
-let logged = false;
+let DB = JSON.parse(JSON.stringify(DEF));
+let currentLang = 'fr';
+let isAdminAuthenticated = false;
 
-/* ═══ GITHUB CONFIG ═══ */
-function getGHConfig(){ return {user:sessionStorage.getItem('gh_user')||'',repo:sessionStorage.getItem('gh_repo')||'',token:sessionStorage.getItem('gh_token')||''}; }
-function setGHConfig(u,r,t){ sessionStorage.setItem('gh_user',u); sessionStorage.setItem('gh_repo',r); sessionStorage.setItem('gh_token',t); }
+// INITIALISATION & CHARGEMENT
+window.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  setupAdminListeners();
+  setupScrollAnimations();
+});
 
-/* ═══ ICÔNES SVG ═══ */
-const ICONS = {
-  email:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
-  phone:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
-  linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
-  github:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>',
-  whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
-  autre:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
-};
-
-/* ═══ TYPAGE ANIMÉ ═══ */
-const phFR = ['Expert en Cybersécurité','Gouvernance SI & Conformité','Pentest Web Black-box','Aspirant RSSI'];
-const phEN = ['Cybersecurity Expert','IS Governance & Compliance','Black-box Web Pentester','Aspiring CISO'];
-let phArr=phFR, pi=0, ci=0, isDel=false;
-const tEl = document.getElementById('typing-el');
-function type(){
-  const p=phArr[pi];
-  if(!isDel){tEl.textContent=p.slice(0,++ci);if(ci===p.length){isDel=true;setTimeout(type,2200);return;}}
-  else{tEl.textContent=p.slice(0,--ci);if(ci===0){isDel=false;pi=(pi+1)%phArr.length;}}
-  setTimeout(type,isDel?45:95);
+function loadData() {
+  // Tente de charger data.json si servi localement/via serveur
+  fetch('data.json')
+    .then(res => { if(!res.ok) throw new Error(); return res.json(); })
+    .then(data => {
+      // Merge safe pour ne pas perdre les nouvelles clés si absentes du JSON
+      DB = Object.assign({}, JSON.parse(JSON.stringify(DEF)), data);
+      initPortfolio();
+    })
+    .catch(() => {
+      // Fallback localstorage local si configuré au préalable
+      const local = localStorage.getItem('venance_portfolio_db');
+      if(local) {
+        try { DB = Object.assign({}, JSON.parse(JSON.stringify(DEF)), JSON.parse(local)); } catch(e){}
+      }
+      initPortfolio();
+    });
 }
-type();
 
-/* ═══ LANGUE ═══ */
-function setLang(l){
-  lang=l;
-  document.documentElement.lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>{
-    const a=b.textContent.includes(l.toUpperCase());
-    b.classList.toggle('active',a);
-    b.setAttribute('aria-pressed',a?'true':'false');
+function initPortfolio() {
+  document.getElementById('loading-overlay').classList.add('hide');
+  renderAll();
+  startTypingEffect();
+}
+
+// COMPOSANTS DE RENDU
+function renderAll() {
+  // Nav highlight active lang
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isFr = btn.getAttribute('onclick').includes('fr');
+    btn.classList.toggle('active', (isFr && currentLang === 'fr') || (!isFr && currentLang === 'en'));
   });
-  phArr=l==='en'?phEN:phFR; pi=0;ci=0;isDel=false;
-  const t=l==='en';
-  setTxt('hero-eyebrow',  t?'Available for missions':'Disponible pour des missions');
-  setTxt('btn-hero-work', t?'See my work':'Voir mon travail');
-  setTxt('btn-hero-cv',   t?'⬇ Download my CV':'⬇ Télécharger mon CV');
-  setTxt('btn-hero-contact',t?'Contact me':'Me contacter');
-  setTxt('stat2-lbl',     t?'Control points checked (UAC IS audit)':'Points de contrôle vérifiés (audit SI de l\'UAC)');
-  setTxt('stat3-lbl',     t?'Security rules written (PSSI-UAC v2.0)':'Règles de sécurité rédigées (PSSI-UAC v2.0)');
-  setTxt('stat4-lbl',     t?'Standards mastered (ISO 27001, 20000-1, ITIL 4, COBIT 2019, PSSIE)':'Normes maîtrisées (ISO 27001, 20000-1, ITIL 4, COBIT 2019, PSSIE)');
-  setTxt('about-tag',     t?'ABOUT':'À PROPOS');
-  setTxt('services-tag',  t?'SERVICES':'SERVICES');
-  setTxt('services-sub',  t?'Clear missions with concrete results. Here\'s how I help organizations protect themselves better.':'Des missions claires avec des résultats concrets. Voici comment j\'aide les organisations à mieux se protéger.');
-  setTxt('projects-tag',  t?'PROJECTS & EXPERIENCES':'PROJETS & EXPÉRIENCES');
-  setTxt('projects-sub',  t?'Real projects for real organizations. Not theoretical exercises.':'Des projets réels, pour de vraies organisations. Pas des exercices théoriques.');
-  setTxt('skills-tag',    t?'SKILLS':'COMPÉTENCES');
-  setTxt('tools-title',   t?'TOOLS & SOFTWARE':'OUTILS & LOGICIELS');
-  setTxt('parcours-tag',  t?'BACKGROUND':'PARCOURS');
-  setTxt('pc-edu',        t?'EDUCATION':'FORMATION');
-  setTxt('pc-cert',       t?'CERTIFICATIONS':'CERTIFICATIONS');
-  setTxt('articles-tag',  t?'CYBERSECURITY WATCH':'VEILLE CYBERSÉCURITÉ');
-  setTxt('articles-sub',  t?'Experience reports, vulnerability analyses and security watch.':'Retours d\'expérience, analyses de vulnérabilités et veille sécurité.');
-  setTxt('contact-tag',   t?'CONTACT':'CONTACT');
-  setTxt('contact-desc',  t?'Need a security audit, penetration test or GRC/compliance support? Write to me directly.':'Besoin d\'un audit de sécurité, d\'un test d\'intrusion ou d\'un accompagnement GRC/conformité ? Écrivez-moi directement.');
-  render();
-}
-function setTxt(id,txt){const el=document.getElementById(id);if(el)el.textContent=txt;}
 
-/* ═══ RENDER ═══ */
-function render(){
-  document.getElementById('hero-desc').textContent=D.infos.hero;
-  document.getElementById('stat1-num').textContent=D.infos.s1n;
-  document.getElementById('stat1-lbl').textContent=D.infos.s1l;
-  const fm=D.contacts.find(c=>c.type==='email');
-  document.getElementById('footer-mail').textContent=fm?fm.lbl:'';
+  // Hero Text
+  document.getElementById('hero-eyebrow').innerText = currentLang === 'fr' ? "Disponible pour des missions" : "Available for missions";
+  document.getElementById('hero-desc').innerText = currentLang === 'fr' ? DB.hero.desc_fr : DB.hero.desc_en;
+  document.getElementById('btn-hero-work').innerText = currentLang === 'fr' ? "Voir mon travail" : "View my work";
+  document.getElementById('btn-hero-contact').innerText = currentLang === 'fr' ? "Me contacter" : "Contact me";
+  
+  // Section Titles & Tags
+  const labels = {
+    fr: { about:"À propos", aboutHeading:"Qui suis-je ?", services:"Services", servicesHeading:"Ce que je fais concrètement", servicesSub:"Des missions claires avec des résultats concrets. Voici comment j'aide les organisations à mieux se protéger.", projects:"Projets & Expériences", projectsHeading:"Ce que j'ai réalisé", projectsSub:"Des projets réels, pour de vraies organisations. Pas des exercices théoriques.", skills:"Compétences", skillsHeading:"Ce que je maîtrise", tools:"Outils & Logiciels", parcours:"Parcours", edu:"Formation", cert:"Certifications", contact:"Contact", contactDesc:"Besoin d'un audit de sécurité, d'un test d'intrusion ou d'un accompagnement GRC/conformité ? Écrivez-moi directement.", know:"Connaissances", knowHeading:"Base de Connaissances", knowSub:"Fiches de synthèses, concepts clés et documentations techniques.", posters:"Affiches", postersHeading:"Galerie d'Affiches", postersSub:"Créations visuelles, supports de sensibilisation et infographies." },
+    en: { about:"About Me", aboutHeading:"Who am I?", services:"Services", servicesHeading:"What I actually do", servicesSub:"Clear missions with tangible results. Here is how I secure business ecosystems.", projects:"Projects & Experiences", projectsHeading:"What I have built", projectsSub:"Real-world projects for active organizations. No fictional assignments.", skills:"Skills", skillsHeading:"What I master", tools:"Tools & Software", parcours:"Background", edu:"Education", cert:"Certifications", contact:"Contact", contactDesc:"Need a security audit, a penetration test or compliance assistance? Drop me a line.", know:"Knowledge", knowHeading:"Knowledge Base", knowSub:"Summary sheets, key concepts and technical documentations.", posters:"Posters", postersHeading:"Poster Gallery", postersSub:"Visual creations, awareness materials and infographics." }
+  };
+  const l = labels[currentLang];
+  
+  document.getElementById('about-tag').innerText = l.about.toUpperCase();
+  document.getElementById('about-heading').innerText = l.aboutHeading;
+  document.getElementById('services-tag').innerText = l.services.toUpperCase();
+  document.getElementById('services-heading').innerText = l.servicesHeading;
+  document.getElementById('services-sub').innerText = l.servicesSub;
+  document.getElementById('projects-tag').innerText = l.projects.toUpperCase();
+  document.getElementById('projects-heading').innerText = l.projectsHeading;
+  document.getElementById('projects-sub').innerText = l.projectsSub;
+  document.getElementById('skills-tag').innerText = l.skills.toUpperCase();
+  document.getElementById('skills-heading').innerText = l.skillsHeading;
+  document.getElementById('tools-title').innerText = l.tools;
+  document.getElementById('parcours-tag').innerText = l.parcours.toUpperCase();
+  document.getElementById('parcours-heading').innerText = l.parcoursHeading;
+  document.getElementById('pc-edu').innerText = l.edu;
+  document.getElementById('pc-cert').innerText = l.cert;
+  document.getElementById('contact-tag').innerText = l.contact.toUpperCase();
+  document.getElementById('contact-heading').innerText = l.contactHeading;
+  document.getElementById('contact-desc').innerText = l.contactDesc;
+  document.getElementById('know-tag').innerText = l.know.toUpperCase();
+  document.getElementById('know-heading').innerText = l.knowHeading;
+  document.getElementById('know-sub').innerText = l.knowSub;
+  document.getElementById('posters-tag').innerText = l.posters.toUpperCase();
+  document.getElementById('posters-heading').innerText = l.postersHeading;
+  document.getElementById('posters-sub').innerText = l.postersSub;
 
-  document.getElementById('about-body').innerHTML=D.infos.about.split('\n\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('');
-  document.getElementById('info-list').innerHTML=`
-    <div class="info-item"><div class="info-label">${lang==='en'?'Location':'Localisation'}</div><div class="info-val">${D.infos.loc}</div></div>
-    <div class="info-item"><div class="info-label">${lang==='en'?'Specialty':'Spécialité'}</div><div class="info-val">${D.infos.spec}</div></div>
-    <div class="info-item"><div class="info-label">${lang==='en'?'Languages':'Langues'}</div><div class="info-val">${D.infos.langs}</div></div>
-    <div class="info-item"><div class="info-label">${lang==='en'?'Availability':'Disponibilité'}</div><div class="info-val">${D.infos.avail}</div></div>`;
+  // About Body & Info
+  document.getElementById('about-body').innerHTML = currentLang === 'fr' ? DB.about.fr : DB.about.en;
+  const infoHTML = (currentLang === 'fr' ? DB.about.info_fr : DB.about.info_en).map(i => `
+    <div class="info-item">
+      <div class="info-label">${i.label}</div>
+      <div class="info-val">${i.val}</div>
+    </div>
+  `).join('');
+  document.getElementById('info-list').innerHTML = infoHTML;
+  
+  // Footer Mail
+  const emailObj = (currentLang === 'fr' ? DB.about.info_fr : DB.about.info_en).find(i => i.label.toLowerCase().includes('email'));
+  if(emailObj) {
+    document.getElementById('footer-mail').innerHTML = `<a href="mailto:${emailObj.val}" style="color:var(--gold); text-decoration:none">${emailObj.val}</a>`;
+  }
 
-  document.getElementById('services-grid').innerHTML=D.services.map(s=>`
+  // Services
+  document.getElementById('services-grid').innerHTML = DB.services.map(s => `
     <div class="service-card" role="listitem">
-      <div class="svc-icon" aria-hidden="true">${s.ico}</div><div class="svc-line"></div>
-      <div class="svc-name">${lang==='en'?s.nome:s.nom}</div>
-      <div class="svc-text">${lang==='en'?s.desce:s.desc}</div>
-    </div>`).join('');
+      <div class="svc-icon">${s.icon}</div>
+      <div class="svc-line"></div>
+      <div class="svc-name">${currentLang === 'fr' ? s.title_fr : s.title_en}</div>
+      <div class="svc-text">${currentLang === 'fr' ? s.desc_fr : s.desc_en}</div>
+    </div>
+  `).join('');
 
-  document.getElementById('projects-grid').innerHTML=D.projects.map(p=>{
-    const bc=p.badgeStyle==='pentest'?'p-badge p-badge-pentest':p.badgeStyle==='hack'?'p-badge p-badge-hack':'p-badge';
-    const bullets=(lang==='en'?p.bule:p.bul).map(b=>{
-      const isCrit=b.includes('⚠')||b.toLowerCase().includes('critical')||b.toLowerCase().includes('critique');
-      return `<li${isCrit?' class="critical"':''}>${b}</li>`;
+  // Projets
+  document.getElementById('projects-grid').innerHTML = DB.projects.map(p => {
+    const isPentest = p.badge.toLowerCase().includes('pentest') || p.badge.toLowerCase().includes('intrusion');
+    const badgeClass = isPentest ? 'p-badge-pentest' : (p.badge.toLowerCase().includes('hack') ? 'p-badge-hack' : '');
+    const ptList = (currentLang === 'fr' ? p.points_fr : p.points_en) || [];
+    const pointsHTML = ptList.map(pt => {
+      if(pt.startsWith('!')) {
+        return `<li class="critical">${pt.substring(1)}</li>`;
+      }
+      return `<li>${pt}</li>`;
     }).join('');
-    const tags=p.tags.map(t=>{
-      const isRed=['owasp','rgpd','gdpr','debug','sqlmap','nikto','whatweb','injection'].some(k=>t.toLowerCase().includes(k));
-      return `<span class="chip${isRed?' chip-red':''}">${t}</span>`;
-    }).join('');
-    return `<div class="project-card" role="listitem">
-      <span class="${bc}">${p.badge}</span>
-      <div class="p-date">${p.date} · ${p.org}</div>
-      <div class="p-name">${lang==='en'?p.tite:p.tit}</div>
-      <div class="p-org">${p.org}</div>
-      <ul class="p-list">${bullets}</ul>
-      <div class="p-chips">${tags}</div>
-    </div>`;
+    const chipsHTML = p.chips ? p.chips.split(',').map(c => `<span class="chip">${c.trim()}</span>`).join('') : '';
+
+    return `
+      <div class="project-card" role="listitem">
+        <span class="p-badge ${badgeClass}">${p.badge}</span>
+        <div class="p-date">${p.date}</div>
+        <h3 class="p-name">${currentLang === 'fr' ? p.name_fr : p.name_en}</h3>
+        <div class="p-org">${currentLang === 'fr' ? p.org_fr : p.org_en}</div>
+        <ul class="p-list">${pointsHTML}</ul>
+        <div class="p-chips">${chipsHTML}</div>
+      </div>
+    `;
   }).join('');
 
-  const offCat='Sécurité Offensive';
-  const cats=[...new Set(D.skills.map(s=>s.c))];
-  document.getElementById('skills-layout').innerHTML=cats.map(cat=>`
-    <div class="skill-group">
-      <div class="sk-group-name">${cat}</div>
-      ${D.skills.filter(s=>s.c===cat).map(s=>`
-        <div class="sk-row">
-          <div class="sk-top"><span class="sk-name">${s.n}</span><span class="sk-pct">${s.l}%</span></div>
-          <div class="sk-track" role="progressbar" aria-valuenow="${s.l}" aria-valuemin="0" aria-valuemax="100" aria-label="${s.n}">
-            <div class="sk-fill${cat===offCat?' sk-fill-red':''}" data-w="${s.l}"></div>
-          </div>
-        </div>`).join('')}
-    </div>`).join('');
+  // Compétences
+  const grcHTML = DB.skills.filter(s => s.group === 'grc').map(s => renderSkillRow(s)).join('');
+  const techHTML = DB.skills.filter(s => s.group === 'tech').map(s => renderSkillRow(s)).join('');
+  document.getElementById('skills-layout').innerHTML = `
+    <div>
+      <div class="sk-group-name">${currentLang === 'fr' ? 'Governance, Risques & Conformité' : 'Governance, Risk & Compliance'}</div>
+      ${grcHTML}
+    </div>
+    <div>
+      <div class="sk-group-name">${currentLang === 'fr' ? 'Sécurité Offensive & Technique' : 'Offensive & Technical Security'}</div>
+      ${techHTML}
+    </div>
+  `;
+  setTimeout(() => {
+    document.querySelectorAll('.sk-fill').forEach(f => f.style.width = f.getAttribute('data-w') + '%');
+  }, 100);
 
-  const offSet=new Set(D.toolsOffensive||[]);
-  document.getElementById('tools-chips').innerHTML=(D.tools||[]).map(t=>
-    `<div class="tool${offSet.has(t)?' tool-red':''}">${t}</div>`).join('');
+  // Outils
+  document.getElementById('tools-chips').innerHTML = DB.tools.map(t => `
+    <span class="tool ${t.red ? 'tool-red' : ''}">${t.name}</span>
+  `).join('');
 
-  document.getElementById('edu-timeline').innerHTML=D.edu.map(e=>`
-    <div class="tl-item"><div class="tl-date">${e.d}</div><div class="tl-name">${e.n}</div><div class="tl-sub">${e.o}</div></div>`).join('');
-  document.getElementById('cert-timeline').innerHTML=D.certs.map(c=>`
-    <div class="tl-item"><div class="tl-date">${c.d}</div><div class="tl-name">${c.n}</div><div class="tl-sub">${c.o}</div></div>`).join('');
+  // Parcours
+  document.getElementById('edu-timeline').innerHTML = DB.parcours.filter(p => p.type === 'edu').map(p => `
+    <div class="tl-item">
+      <div class="tl-date">${p.date}</div>
+      <div class="tl-name">${currentLang === 'fr' ? p.name_fr : p.name_en}</div>
+      <div class="tl-sub">${currentLang === 'fr' ? p.sub_fr : p.sub_en}</div>
+    </div>
+  `).join('');
+  document.getElementById('cert-timeline').innerHTML = DB.parcours.filter(p => p.type === 'cert').map(p => `
+    <div class="tl-item">
+      <div class="tl-date">${p.date}</div>
+      <div class="tl-name">${currentLang === 'fr' ? p.name_fr : p.name_en}</div>
+      <div class="tl-sub">${currentLang === 'fr' ? p.sub_fr : p.sub_en}</div>
+    </div>
+  `).join('');
 
-  const arts=D.articles||[];
-  const artSec=document.getElementById('articles');
-  if(arts.length>0){
-    artSec.classList.add('has-content');
-    document.getElementById('articles-grid').innerHTML=arts.map(a=>`
-      <a class="article-card fu" href="${a.lien||'#'}" target="_blank" rel="noopener">
-        <div class="art-date">${a.date||''}</div>
-        <div class="art-title">${lang==='en'?(a.titreEn||a.titre):a.titre}</div>
-        <div class="art-chips">${(a.tags||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
-      </a>`).join('');
-  } else { artSec.classList.remove('has-content'); }
+  // Rendu Connaissances
+  document.getElementById('know-grid').innerHTML = (DB.connaissances || []).map(k => `
+    <div class="know-card">
+      <span class="know-cat">${k.category}</span>
+      <h3 class="know-title">${k.title}</h3>
+      <div class="know-body">${k.content}</div>
+    </div>
+  `).join('');
 
-  document.getElementById('contact-grid').innerHTML=D.contacts.map(c=>`
-    <a href="${c.lnk}" class="contact-card" target="_blank" rel="noopener">
-      ${ICONS[c.type]||ICONS.autre}${c.lbl}
-    </a>`).join('');
+  // Rendu Affiches
+  document.getElementById('posters-grid').innerHTML = (DB.affiches || []).map(p => `
+    <div class="poster-card">
+      <div class="poster-img-container">
+        <img src="${p.image || 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 3 4%22></svg>'}" alt="${p.title}" class="poster-img">
+      </div>
+      <div class="poster-det">
+        <div class="poster-meta">
+          <span>${p.date}</span>
+          <span class="poster-circ" title="${p.circumstance}">${p.circumstance}</span>
+        </div>
+        <h3 class="poster-title">${p.title}</h3>
+        <p class="poster-desc">${p.description}</p>
+        <div class="poster-btns">
+          <button class="btn btn-outline" onclick="openLightbox('${p.image}', \`${p.title.replace(/'/g, "\\'")}\`)">${currentLang === 'fr' ? 'Voir' : 'View'}</button>
+          <a href="${p.image}" download="${p.title}.png" class="btn btn-gold">${currentLang === 'fr' ? 'Télécharger' : 'Download'}</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
 
-  observeAll();
+  // Contact Grid Injection Dynamique
+  const mail = emailObj ? emailObj.val : 'contact@venancehoundete.com';
+  document.getElementById('contact-grid').innerHTML = `
+    <a href="mailto:${mail}" class="contact-card">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email direct
+    </a>
+    <a href="https://linkedin.com/in/" target="_blank" class="contact-card">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      LinkedIn
+    </a>
+  `;
+
+  if(isAdminAuthenticated) renderAdminLists();
 }
 
-/* ═══ SCROLL ANIMATIONS ═══ */
-function observeAll(){
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach((e,i)=>{
-      if(e.isIntersecting){
-        setTimeout(()=>{
-          e.target.classList.add('vis');
-          e.target.querySelectorAll('.sk-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
-        },i*80);
-        obs.unobserve(e.target);
+function renderSkillRow(s) {
+  return `
+    <div class="sk-row">
+      <div class="sk-top">
+        <span class="sk-name">${currentLang === 'fr' ? s.name_fr : s.name_en}</span>
+        <span class="sk-pct">${s.pct}%</span>
+      </div>
+      <div class="sk-track">
+        <div class="sk-fill ${s.red ? 'sk-fill-red' : ''}" data-w="${s.pct}"></div>
+      </div>
+    </div>
+  `;
+}
+
+// TYPING EFFECT
+let typingIdx = 0;
+let titleIdx = 0;
+function startTypingEffect() {
+  const el = document.getElementById('typing-el');
+  if(!el) return;
+  const arr = currentLang === 'fr' ? DB.hero.titles_fr : DB.hero.titles_en;
+  if(!arr || arr.length === 0) return;
+  
+  let curText = arr[titleIdx];
+  el.innerText = curText.substring(0, typingIdx);
+  
+  if(typingIdx < curText.length) {
+    typingIdx++;
+    setTimeout(startTypingEffect, 60);
+  } else {
+    setTimeout(() => {
+      typingIdx = 0;
+      titleIdx = (titleIdx + 1) % arr.length;
+      setTimeout(startTypingEffect, 300);
+    }, 2500);
+  }
+}
+
+function setLang(l) {
+  currentLang = l;
+  typingIdx = 0;
+  titleIdx = 0;
+  renderAll();
+}
+
+// SCROLL ANIMATIONS
+function setupScrollAnimations() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+  }, {threshold: .05});
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+}
+
+// WYSIWYG COMMANDS
+function execEditorCmd(cmd, value = null) {
+  document.execCommand(cmd, false, value);
+}
+
+// LIGHTBOX ACTIONS
+function openLightbox(imgSrc, title) {
+  const lb = document.getElementById('poster-lightbox');
+  document.getElementById('lightbox-img').src = imgSrc;
+  document.getElementById('lightbox-caption').innerText = title;
+  lb.classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('poster-lightbox').classList.remove('open');
+}
+
+// COMPOSANTE FONCTIONNELLE ADMINISTRATION
+function setupAdminListeners() {
+  const trig = document.getElementById('admin-trigger');
+  const ov = document.getElementById('admin-overlay');
+  
+  trig.addEventListener('click', () => ov.classList.add('open'));
+  document.getElementById('btn-close-admin').addEventListener('click', () => ov.classList.remove('open'));
+  document.getElementById('btn-cancel-login').addEventListener('click', () => ov.classList.remove('open'));
+  
+  document.getElementById('btn-login').addEventListener('click', handleAdminLogin);
+  document.getElementById('adm-pw').addEventListener('keypress', (e) => { if(e.key === 'Enter') handleAdminLogin(); });
+
+  // Intercepteur WYSIWYG intelligent pour ChatGPT/Claude/Gemini
+  const editor = document.getElementById('know-editor');
+  if(editor) {
+    editor.addEventListener('paste', function(e) {
+      e.preventDefault();
+      const html = e.clipboardData.getData('text/html');
+      if (html) {
+        // Conserve le formatage riche et propre nettoyé nativement
+        document.execCommand('insertHTML', false, html);
+      } else {
+        const text = e.clipboardData.getData('text/plain');
+        document.execCommand('insertText', false, text);
       }
     });
-  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.fu:not(.vis)').forEach(el=>obs.observe(el));
+  }
 }
 
-/* ═══ LOADING ═══ */
-function showLoading(){document.getElementById('loading-overlay').classList.remove('hide');}
-function hideLoading(){
-  const ov=document.getElementById('loading-overlay');
-  ov.classList.add('hide');
-  setTimeout(()=>{ov.style.display='none';},520);
+function handleAdminLogin() {
+  const pw = document.getElementById('adm-pw').value;
+  if(pw === DB.config.password) {
+    isAdminAuthenticated = true;
+    document.getElementById('adm-login').style.display = 'none';
+    document.getElementById('adm-content').style.display = 'flex';
+    document.getElementById('lg-err').style.display = 'none';
+    
+    // Fill config inputs
+    document.getElementById('cfg-token').value = DB.config.githubToken || '';
+    document.getElementById('cfg-repo').value = DB.config.githubRepo || '';
+    updateGitHubStatusBadge();
+    renderAdminLists();
+  } else {
+    document.getElementById('lg-err').style.display = 'block';
+  }
 }
 
-/* ═══ TOAST ═══ */
-function toast(msg,err=false){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.className=err?'show err':'show';
-  setTimeout(()=>{t.className='';},2800);
-}
-
-/* ═══ GITHUB SAVE ═══ */
-async function githubSave(newData){
-  const cfg=getGHConfig();
-  if(!cfg.user||!cfg.repo||!cfg.token){toast('❌ Configurez GitHub d\'abord',true);return false;}
-  const url=`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/data.json`;
-  const headers={Authorization:`token ${cfg.token}`,'Content-Type':'application/json'};
-  let sha=null;
-  try{const r=await fetch(url,{headers});if(r.ok){const j=await r.json();sha=j.sha;}}catch(e){}
-  const body={message:`Portfolio update — ${new Date().toISOString()}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(newData,null,2))))};
-  if(sha)body.sha=sha;
-  const res=await fetch(url,{method:'PUT',headers,body:JSON.stringify(body)});
-  return res.ok;
-}
-
-async function saveSection(progId,_,obj){
-  const prog=document.getElementById(progId);
-  if(prog)prog.classList.add('show');
-  D={...D,...obj};
-  const ok=await githubSave(D);
-  if(prog)prog.classList.remove('show');
-  toast(ok?'✅ Sauvegardé sur GitHub !':'⚠️ Erreur GitHub — données mises à jour localement',!ok);
-  render();
-  return ok;
-}
-
-/* ═══ ADMIN LISTS ═══ */
-function renderAdmLists(){
-  document.getElementById('svc-list-adm').innerHTML=D.services.map((s,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${s.ico} ${s.nom}</div></div><button class="ib del" onclick="delSvc(${i})">Supprimer</button></div>`).join('');
-  document.getElementById('prj-list-adm').innerHTML=D.projects.map((p,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${lang==='en'?p.tite:p.tit}</div><div class="item-e-sub">${p.org} · ${p.date}</div></div><button class="ib del" onclick="delPrj(${i})">Supprimer</button></div>`).join('');
-  document.getElementById('sk-list-adm').innerHTML=D.skills.map((s,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${s.n}</div><div class="item-e-sub">${s.c} · ${s.l}%</div></div><button class="ib del" onclick="delSk(${i})">Supprimer</button></div>`).join('');
-  document.getElementById('edu-list-adm').innerHTML=D.edu.map((e,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${e.n}</div><div class="item-e-sub">${e.o}</div></div><button class="ib del" onclick="delEdu(${i})">Supprimer</button></div>`).join('');
-  document.getElementById('cert-list-adm').innerHTML=D.certs.map((c,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${c.n}</div><div class="item-e-sub">${c.o}</div></div><button class="ib del" onclick="delCert(${i})">Supprimer</button></div>`).join('');
-  document.getElementById('ct-list-adm').innerHTML=D.contacts.map((c,i)=>`
-    <div class="item-e"><div><div class="item-e-name">${c.lbl}</div><div class="item-e-sub">${c.type}</div></div><button class="ib del" onclick="delCt(${i})">Supprimer</button></div>`).join('');
-}
-
-function delSvc(i){D.services.splice(i,1);saveSection('prog-services','',{services:D.services});renderAdmLists();}
-function delPrj(i){D.projects.splice(i,1);saveSection('prog-projects','',{projects:D.projects});renderAdmLists();}
-function delSk(i) {D.skills.splice(i,1);  saveSection('prog-skills','',  {skills:D.skills});   renderAdmLists();}
-function delEdu(i){D.edu.splice(i,1);     saveSection('prog-parcours','',{edu:D.edu});         renderAdmLists();}
-function delCert(i){D.certs.splice(i,1);  saveSection('prog-parcours','',{certs:D.certs});     renderAdmLists();}
-function delCt(i){D.contacts.splice(i,1); saveSection('prog-contact','', {contacts:D.contacts});renderAdmLists();}
-
-function g(id){return(document.getElementById(id)||{}).value||'';}
-
-/* ═══ ADMIN EVENTS ═══ */
-function initAdminEvents(){
-  /* Tabs */
-  document.querySelectorAll('.adm-tab').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('.adm-tab').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
-      document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('active'));
-      btn.classList.add('active');btn.setAttribute('aria-selected','true');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
+function switchTab(t) {
+  document.querySelectorAll('.adm-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${t}'`));
   });
+  document.querySelectorAll('.adm-sec').forEach(sec => {
+    sec.classList.toggle('active', sec.id === `sec-${t}`);
+  });
+}
 
-  /* Login */
-  const doLogin=async()=>{
-    const ok=await verifyPass(document.getElementById('adm-pw').value);
-    if(ok){
-      logged=true;
-      document.getElementById('adm-login').style.display='none';
-      const c=document.getElementById('adm-content');c.style.display='flex';
-      renderAdmLists();
-      const cfg=getGHConfig();
-      document.getElementById('gh-user').value=cfg.user;
-      document.getElementById('gh-repo').value=cfg.repo;
-      document.getElementById('gh-token').value=cfg.token;
-      updateGHStatus();
-      document.getElementById('f-loc').value=D.infos.loc;
-      document.getElementById('f-avail').value=D.infos.avail;
-      document.getElementById('f-spec').value=D.infos.spec;
-      document.getElementById('f-langs').value=D.infos.langs;
-      document.getElementById('f-hero').value=D.infos.hero;
-      document.getElementById('f-about').value=D.infos.about;
-      document.getElementById('f-s1n').value=D.infos.s1n;
-      document.getElementById('f-s1l').value=D.infos.s1l;
+function showToast(msg, isErr=false) {
+  const t = document.getElementById('toast');
+  t.innerText = msg;
+  t.classList.toggle('err', isErr);
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// SYNCHRONISATION GITHUB & SAVE CRITIQUE
+function updateGitHubStatusBadge() {
+  const badge = document.getElementById('gh-status');
+  if(!DB.config.githubToken || !DB.config.githubRepo) {
+    badge.innerText = "Non configuré"; badge.className = "github-status none";
+  } else {
+    badge.innerText = "Connecté (Prêt)"; badge.className = "github-status ok";
+  }
+}
+
+function testAndSaveGitHub() {
+  const tok = document.getElementById('cfg-token').value.trim();
+  const rep = document.getElementById('cfg-repo').value.trim();
+  if(!tok || !rep) return showToast("Veuillez remplir le token et le dépôt", true);
+  
+  document.getElementById('save-progress').classList.add('show');
+  fetch(`https://api.github.com/repos/${rep}`, {
+    headers: { 'Authorization': `token ${tok}`, 'Accept': 'application/vnd.github.v3+json' }
+  }).then(res => {
+    if(res.ok) {
+      DB.config.githubToken = tok;
+      DB.config.githubRepo = rep;
+      updateGitHubStatusBadge();
+      saveDataLocally();
+      showToast("Connexion GitHub validée avec succès !");
     } else {
-      const err=document.getElementById('lg-err');err.style.display='block';
-      setTimeout(()=>{err.style.display='none';},3000);
+      showToast("Dépôt ou Token GitHub invalide", true);
     }
+  }).catch(() => showToast("Erreur réseau réseau", true))
+    .finally(() => document.getElementById('save-progress').classList.remove('show'));
+}
+
+function saveGlobalConfig() {
+  const p = document.getElementById('cfg-pass').value;
+  if(p) DB.config.password = p;
+  saveDataLocally();
+  showToast("Configuration générale enregistrée localement.");
+}
+
+function saveDataLocally() {
+  localStorage.setItem('venance_portfolio_db', JSON.stringify(DB));
+}
+
+function publishData() {
+  if(!DB.config.githubToken || !DB.config.githubRepo) {
+    return showToast("Configurez d'abord la synchronisation GitHub dans l'onglet Configuration !", true);
+  }
+  const prog = document.getElementById('save-progress');
+  prog.classList.add('show');
+  
+  const token = DB.config.githubToken;
+  const repo = DB.config.githubRepo;
+  const url = `https://api.github.com/repos/${repo}/contents/data.json`;
+  
+  // Récupérer le SHA du fichier existant
+  fetch(url, {
+    headers: { 'Authorization': `token ${token}` }
+  })
+  .then(res => res.json())
+  .then(fileData => {
+    const sha = fileData.sha;
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(DB, null, 2))));
+    
+    return fetch(url, {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: "Mise à jour automatique du portfolio - Administration",
+        content: content,
+        sha: sha
+      })
+    });
+  })
+  .then(res => {
+    if(res.ok) showToast("🚀 Changements publiés sur GitHub et synchronisés !");
+    else throw new Error();
+  })
+  .catch(() => showToast("Erreur lors de la publication GitHub. Vérifiez vos droits.", true))
+  .finally(() => prog.classList.remove('show'));
+}
+
+// GESTION DES LISTES ADM
+function renderAdminLists() {
+  // Services
+  document.getElementById('adm-services-list').innerHTML = DB.services.map(s => `
+    <div class="item-e">
+      <div>
+        <div class="item-e-name">${s.icon} ${s.title_fr}</div>
+        <div class="item-e-sub">${s.title_en}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="editService(${s.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('services', ${s.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Projets
+  document.getElementById('adm-projects-list').innerHTML = DB.projects.map(p => `
+    <div class="item-e">
+      <div>
+        <div class="item-e-name">[${p.badge}] ${p.name_fr}</div>
+        <div class="item-e-sub">${p.org_fr} — ${p.date}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="editProject(${p.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('projects', ${p.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Compétences
+  document.getElementById('adm-skills-list').innerHTML = DB.skills.map(s => `
+    <div class="item-e">
+      <div>
+        <div class="item-e-name">${s.name_fr} (${s.pct}%)</div>
+        <div class="item-e-sub">Groupe: ${s.group.toUpperCase()} | ${s.red ? 'Alerte Rouge' : 'Or'}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="editSkill(${s.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('skills', ${s.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Parcours
+  document.getElementById('adm-parcours-list').innerHTML = DB.parcours.map(p => `
+    <div class="item-e">
+      <div>
+        <div class="item-e-name">[${p.type === 'edu' ? 'EDU' : 'CERT'}] ${p.name_fr}</div>
+        <div class="item-e-sub">${p.sub_fr} — ${p.date}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="editParcours(${p.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('parcours', ${p.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Connaissances
+  document.getElementById('adm-know-list').innerHTML = (DB.connaissances || []).map(k => `
+    <div class="item-e">
+      <div>
+        <div class="item-e-name">${k.title}</div>
+        <div class="item-e-sub">Catégorie: ${k.category}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="moveItem('connaissances', ${k.id}, -1)">▲</button>
+        <button class="ib" onclick="moveItem('connaissances', ${k.id}, 1)">▼</button>
+        <button class="ib" onclick="editKnowledge(${k.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('connaissances', ${k.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+
+  // Affiches
+  document.getElementById('adm-poster-list').innerHTML = (DB.affiches || []).map(p => `
+    <div class="item-e">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="${p.image}" style="width:30px;height:40px;object-fit:cover;border-radius:3px;background:var(--navy2)">
+        <div>
+          <div class="item-e-name">${p.title}</div>
+          <div class="item-e-sub">${p.circumstance} — ${p.date}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="ib" onclick="editPoster(${p.id})">Modifier</button>
+        <button class="ib del" onclick="deleteItem('affiches', ${p.id})">Supprimer</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function deleteItem(key, id) {
+  if(confirm("Confirmer la suppression définitive ?")) {
+    DB[key] = DB[key].filter(item => item.id !== id);
+    saveDataLocally();
+    renderAll();
+  }
+}
+
+function moveItem(key, id, dir) {
+  const arr = DB[key];
+  const idx = arr.findIndex(i => i.id === id);
+  if(idx === -1) return;
+  const targetIdx = idx + dir;
+  if(targetIdx < 0 || targetIdx >= arr.length) return;
+  
+  const temp = arr[idx];
+  arr[idx] = arr[targetIdx];
+  arr[targetIdx] = temp;
+  
+  saveDataLocally();
+  renderAll();
+}
+
+// ACTIONS FORMULAIRES INDIVIDUELS
+function clearServiceForm() {
+  document.getElementById('svc-id').value = ''; document.getElementById('svc-icon').value = '';
+  document.getElementById('svc-title-fr').value = ''; document.getElementById('svc-title-en').value = '';
+  document.getElementById('svc-desc-fr').value = ''; document.getElementById('svc-desc-en').value = '';
+}
+function editService(id) {
+  const s = DB.services.find(i => i.id === id);
+  if(!s) return;
+  document.getElementById('svc-id').value = s.id; document.getElementById('svc-icon').value = s.icon;
+  document.getElementById('svc-title-fr').value = s.title_fr; document.getElementById('svc-title-en').value = s.title_en;
+  document.getElementById('svc-desc-fr').value = s.desc_fr; document.getElementById('svc-desc-en').value = s.desc_en;
+}
+function saveService() {
+  const id = document.getElementById('svc-id').value;
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    icon: document.getElementById('svc-icon').value,
+    title_fr: document.getElementById('svc-title-fr').value,
+    title_en: document.getElementById('svc-title-en').value,
+    desc_fr: document.getElementById('svc-desc-fr').value,
+    desc_en: document.getElementById('svc-desc-en').value
   };
-  document.getElementById('btn-login').addEventListener('click',doLogin);
-  document.getElementById('adm-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
-
-  /* Close */
-  document.getElementById('btn-cancel-login').addEventListener('click',closeAdmin);
-  document.getElementById('btn-close-admin').addEventListener('click',closeAdmin);
-  document.getElementById('admin-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('admin-overlay'))closeAdmin();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('admin-overlay').classList.contains('open'))closeAdmin();});
-  document.getElementById('admin-trigger').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openAdmin();});
-
-  /* GitHub */
-  document.getElementById('btn-gh-save').addEventListener('click',()=>{
-    setGHConfig(g('gh-user'),g('gh-repo'),g('gh-token'));updateGHStatus();toast('✅ Config GitHub sauvegardée');
-  });
-  document.getElementById('btn-gh-test').addEventListener('click',async()=>{
-    const cfg=getGHConfig();if(!cfg.token){toast('❌ Token manquant',true);return;}
-    const r=await fetch('https://api.github.com/user',{headers:{Authorization:`token ${cfg.token}`}});
-    const badge=document.getElementById('gh-status-badge');
-    if(r.ok){const u=await r.json();toast(`✅ Connecté : ${u.login}`);badge.className='github-status ok';badge.textContent=`✓ ${u.login}`;}
-    else{toast('❌ Token invalide',true);badge.className='github-status nok';badge.textContent='✗ Erreur';}
-  });
-
-  /* Infos */
-  document.getElementById('btn-save-infos').addEventListener('click',()=>{
-    saveSection('prog-infos','',{infos:{...D.infos,loc:g('f-loc'),avail:g('f-avail'),spec:g('f-spec'),langs:g('f-langs'),hero:g('f-hero'),about:g('f-about'),s1n:g('f-s1n'),s1l:g('f-s1l')}});
-  });
-
-  /* Service */
-  document.getElementById('btn-add-svc').addEventListener('click',()=>{
-    const s={ico:g('s-ico')||'🔧',nom:g('s-nom'),desc:g('s-desc'),nome:g('s-nome'),desce:g('s-desce')};
-    if(!s.nom){toast('❌ Nom requis',true);return;}
-    D.services.push(s);saveSection('prog-services','',{services:D.services});renderAdmLists();
-    ['s-ico','s-nom','s-desc','s-nome','s-desce'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
-
-  /* Project */
-  document.getElementById('btn-add-prj').addEventListener('click',()=>{
-    const p={tit:g('p-tit'),tite:g('p-tite'),org:g('p-org'),date:g('p-date'),badge:g('p-badge'),badgeStyle:g('p-badge-style'),
-      bul:g('p-bul').split('\n').filter(l=>l.trim()),bule:g('p-bule').split('\n').filter(l=>l.trim()),
-      tags:g('p-tags').split(',').map(t=>t.trim()).filter(Boolean)};
-    if(!p.tit){toast('❌ Titre requis',true);return;}
-    D.projects.push(p);saveSection('prog-projects','',{projects:D.projects});renderAdmLists();
-    ['p-tit','p-tite','p-org','p-date','p-badge','p-bul','p-bule','p-tags'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
-
-  /* Skill */
-  document.getElementById('btn-add-sk').addEventListener('click',()=>{
-    const s={n:g('sk-n'),c:g('sk-c'),l:parseInt(g('sk-l'))||70};
-    if(!s.n){toast('❌ Nom requis',true);return;}
-    D.skills.push(s);saveSection('prog-skills','',{skills:D.skills});renderAdmLists();
-    ['sk-n','sk-c','sk-l'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
-
-  /* Tool */
-  document.getElementById('btn-add-tool').addEventListener('click',()=>{
-    const t=g('tk-n').trim();if(!t){toast('❌ Nom requis',true);return;}
-    if(!D.tools.includes(t))D.tools.push(t);
-    saveSection('prog-skills','',{tools:D.tools});renderAdmLists();
-    document.getElementById('tk-n').value='';
-  });
-
-  /* Edu */
-  document.getElementById('btn-add-edu').addEventListener('click',()=>{
-    const e={n:g('e-n'),o:g('e-o'),d:g('e-d')};if(!e.n){toast('❌ Intitulé requis',true);return;}
-    D.edu.push(e);saveSection('prog-parcours','',{edu:D.edu});renderAdmLists();
-    ['e-n','e-o','e-d'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
-
-  /* Cert */
-  document.getElementById('btn-add-cert').addEventListener('click',()=>{
-    const c={n:g('c-n'),o:g('c-o'),d:g('c-d')};if(!c.n){toast('❌ Nom requis',true);return;}
-    D.certs.push(c);saveSection('prog-parcours','',{certs:D.certs});renderAdmLists();
-    ['c-n','c-o','c-d'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
-
-  /* Contact */
-  document.getElementById('btn-add-ct').addEventListener('click',()=>{
-    const c={type:g('ct-type'),lbl:g('ct-lbl'),lnk:g('ct-lnk')};
-    if(!c.lbl||!c.lnk){toast('❌ Libellé et lien requis',true);return;}
-    D.contacts.push(c);saveSection('prog-contact','',{contacts:D.contacts});renderAdmLists();
-    ['ct-lbl','ct-lnk'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  });
+  if(id) {
+    const idx = DB.services.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.services[idx] = obj;
+  } else DB.services.push(obj);
+  saveDataLocally(); clearServiceForm(); renderAll();
 }
 
-function updateGHStatus(){
-  const cfg=getGHConfig();const badge=document.getElementById('gh-status-badge');
-  if(cfg.token&&cfg.user&&cfg.repo){badge.className='github-status ok';badge.textContent=`✓ ${cfg.user}/${cfg.repo}`;}
-  else{badge.className='github-status none';badge.textContent='Non configuré';}
+function clearProjectForm() {
+  document.getElementById('p-id').value = ''; document.getElementById('p-badge').value = '';
+  document.getElementById('p-date').value = ''; document.getElementById('p-name-fr').value = '';
+  document.getElementById('p-name-en').value = ''; document.getElementById('p-org-fr').value = '';
+  document.getElementById('p-org-en').value = ''; document.getElementById('p-points-fr').value = '';
+  document.getElementById('p-points-en').value = ''; document.getElementById('p-chips').value = '';
 }
-function openAdmin(){
-  document.getElementById('admin-overlay').classList.add('open');
-  if(!logged){
-    document.getElementById('adm-login').style.display='flex';
-    document.getElementById('adm-content').style.display='none';
-    setTimeout(()=>{document.getElementById('adm-pw').focus();},100);
-  }
+function editProject(id) {
+  const p = DB.projects.find(i => i.id === id); if(!p) return;
+  document.getElementById('p-id').value = p.id; document.getElementById('p-badge').value = p.badge;
+  document.getElementById('p-date').value = p.date; document.getElementById('p-name-fr').value = p.name_fr;
+  document.getElementById('p-name-en').value = p.name_en; document.getElementById('p-org-fr').value = p.org_fr;
+  document.getElementById('p-org-en').value = p.org_en;
+  document.getElementById('p-points-fr').value = p.points_fr.join('\n');
+  document.getElementById('p-points-en').value = p.points_en.join('\n');
+  document.getElementById('p-chips').value = p.chips;
 }
-function closeAdmin(){document.getElementById('admin-overlay').classList.remove('open');}
+function saveProject() {
+  const id = document.getElementById('p-id').value;
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    badge: document.getElementById('p-badge').value,
+    date: document.getElementById('p-date').value,
+    name_fr: document.getElementById('p-name-fr').value,
+    name_en: document.getElementById('p-name-en').value,
+    org_fr: document.getElementById('p-org-fr').value,
+    org_en: document.getElementById('p-org-en').value,
+    points_fr: document.getElementById('p-points-fr').value.split('\n').filter(l => l.trim()),
+    points_en: document.getElementById('p-points-en').value.split('\n').filter(l => l.trim()),
+    chips: document.getElementById('p-chips').value
+  };
+  if(id) {
+    const idx = DB.projects.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.projects[idx] = obj;
+  } else DB.projects.push(obj);
+  saveDataLocally(); clearProjectForm(); renderAll();
+}
 
-/* ═══ INIT ═══ */
-async function init(){
-  showLoading();
-  try{
-    const r=await fetch('./data.json?t='+Date.now());
-    if(r.ok){
-      const remote=await r.json();
-      /* Fusionner avec DEF pour garantir toutes les nouvelles clés */
-      D={...JSON.parse(JSON.stringify(DEF)),...remote};
-    }
-  }catch(e){
-    console.info('[Portfolio] Aucun data.json — données par défaut utilisées.');
-  }
-  render();
-  initAdminEvents();
-  document.getElementById('admin-trigger').addEventListener('click',openAdmin);
-  setTimeout(hideLoading,400);
+function clearSkillForm() {
+  document.getElementById('sk-id').value = ''; document.getElementById('sk-name-fr').value = '';
+  document.getElementById('sk-name-en').value = ''; document.getElementById('sk-pct').value = '';
 }
-init();
+function editSkill(id) {
+  const s = DB.skills.find(i => i.id === id); if(!s) return;
+  document.getElementById('sk-id').value = s.id; document.getElementById('sk-group').value = s.group;
+  document.getElementById('sk-name-fr').value = s.name_fr; document.getElementById('sk-name-en').value = s.name_en;
+  document.getElementById('sk-pct').value = s.pct; document.getElementById('sk-red').value = s.red;
+}
+function saveSkill() {
+  const id = document.getElementById('sk-id').value;
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    group: document.getElementById('sk-group').value,
+    name_fr: document.getElementById('sk-name-fr').value,
+    name_en: document.getElementById('sk-name-en').value,
+    pct: parseInt(document.getElementById('sk-pct').value) || 0,
+    red: parseInt(document.getElementById('sk-red').value)
+  };
+  if(id) {
+    const idx = DB.skills.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.skills[idx] = obj;
+  } else DB.skills.push(obj);
+  saveDataLocally(); clearSkillForm(); renderAll();
+}
+
+function clearParcoursForm() {
+  document.getElementById('pc-id').value = ''; document.getElementById('pc-date').value = '';
+  document.getElementById('pc-name-fr').value = ''; document.getElementById('pc-name-en').value = '';
+  document.getElementById('pc-sub-fr').value = ''; document.getElementById('pc-sub-en').value = '';
+}
+function editParcours(id) {
+  const p = DB.parcours.find(i => i.id === id); if(!p) return;
+  document.getElementById('pc-id').value = p.id; document.getElementById('pc-type').value = p.type;
+  document.getElementById('pc-date').value = p.date; document.getElementById('pc-name-fr').value = p.name_fr;
+  document.getElementById('pc-name-en').value = p.name_en; document.getElementById('pc-sub-fr').value = p.sub_fr;
+  document.getElementById('pc-sub-en').value = p.sub_en;
+}
+function saveParcours() {
+  const id = document.getElementById('pc-id').value;
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    type: document.getElementById('pc-type').value,
+    date: document.getElementById('pc-date').value,
+    name_fr: document.getElementById('pc-name-fr').value,
+    name_en: document.getElementById('pc-name-en').value,
+    sub_fr: document.getElementById('pc-sub-fr').value,
+    sub_en: document.getElementById('pc-sub-en').value
+  };
+  if(id) {
+    const idx = DB.parcours.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.parcours[idx] = obj;
+  } else DB.parcours.push(obj);
+  saveDataLocally(); clearParcoursForm(); renderAll();
+}
+
+// LOGIQUE CONNAISSANCES
+function clearKnowledgeForm() {
+  document.getElementById('know-id-form').value = '';
+  document.getElementById('know-title-input').value = '';
+  document.getElementById('know-cat-input').value = '';
+  document.getElementById('know-editor').innerHTML = '';
+}
+function editKnowledge(id) {
+  const k = DB.connaissances.find(i => i.id === id); if(!k) return;
+  document.getElementById('know-id-form').value = k.id;
+  document.getElementById('know-title-input').value = k.title;
+  document.getElementById('know-cat-input').value = k.category;
+  document.getElementById('know-editor').innerHTML = k.content;
+}
+function saveKnowledge() {
+  const id = document.getElementById('know-id-form').value;
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    title: document.getElementById('know-title-input').value,
+    category: document.getElementById('know-cat-input').value,
+    content: document.getElementById('know-editor').innerHTML
+  };
+  if(!DB.connaissances) DB.connaissances = [];
+  if(id) {
+    const idx = DB.connaissances.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.connaissances[idx] = obj;
+  } else DB.connaissances.push(obj);
+  saveDataLocally(); clearKnowledgeForm(); renderAll();
+}
+
+// LOGIQUE AFFICHES
+function clearPosterForm() {
+  document.getElementById('poster-id-form').value = '';
+  document.getElementById('poster-title-input').value = '';
+  document.getElementById('poster-date-input').value = '';
+  document.getElementById('poster-circ-input').value = '';
+  document.getElementById('poster-desc-input').value = '';
+  document.getElementById('poster-file-input').value = '';
+  document.getElementById('poster-img-base64').value = '';
+}
+function handlePosterUpload(input) {
+  const file = input.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById('poster-img-base64').value = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function editPoster(id) {
+  const p = DB.affiches.find(i => i.id === id); if(!p) return;
+  document.getElementById('poster-id-form').value = p.id;
+  document.getElementById('poster-title-input').value = p.title;
+  document.getElementById('poster-date-input').value = p.date;
+  document.getElementById('poster-circ-input').value = p.circumstance;
+  document.getElementById('poster-desc-input').value = p.description;
+  document.getElementById('poster-img-base64').value = p.image;
+}
+function savePoster() {
+  const id = document.getElementById('poster-id-form').value;
+  const imgData = document.getElementById('poster-img-base64').value;
+  if(!imgData) return showToast("Veuillez charger une image pour l'affiche", true);
+
+  const obj = {
+    id: id ? parseInt(id) : Date.now(),
+    title: document.getElementById('poster-title-input').value,
+    date: document.getElementById('poster-date-input').value,
+    circumstance: document.getElementById('poster-circ-input').value,
+    description: document.getElementById('poster-desc-input').value,
+    image: imgData
+  };
+  if(!DB.affiches) DB.affiches = [];
+  if(id) {
+    const idx = DB.affiches.findIndex(i => i.id === parseInt(id));
+    if(idx !== -1) DB.affiches[idx] = obj;
+  } else DB.affiches.push(obj);
+  saveDataLocally(); clearPosterForm(); renderAll();
+}
 </script>
 </body>
 </html>
