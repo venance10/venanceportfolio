@@ -130,7 +130,7 @@ section:nth-child(even){background:var(--navy2)}
 .p-org{font-size:13px;color:var(--gold);margin-bottom:20px;font-weight:500}
 .p-list{list-style:none;margin-bottom:24px}
 .p-list li{font-size:14px;color:var(--text);padding:5px 0 5px 18px;position:relative;line-height:1.65}
-.p-list li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:12px;top:6px}
+.p-list li::before{content:'';position:absolute;left:0;color:var(--gold);font-size:12px;top:6px}
 .p-list li.critical::before{content:'⚠';color:#FF8080}
 .p-list li.critical{color:#FFB3B3}
 .p-chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -164,7 +164,7 @@ section:nth-child(even){background:var(--navy2)}
 .tl-item::before{content:'';position:absolute;left:-32px;top:6px;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
 .tl-date{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;margin-bottom:6px}
 .tl-name{font-family:var(--f-head);font-size:17px;font-weight:700;color:var(--white);margin-bottom:4px}
-.tl-sub{font-size:13px;color:var(--gray);line-height:1.6}
+.tl-sub覆{font-size:13px;color:var(--gray);line-height:1.6}
 
 /* ARTICLES */
 #articles{display:none}
@@ -174,6 +174,37 @@ section:nth-child(even){background:var(--navy2)}
 .article-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
 .art-date{font-size:11px;color:var(--gray);margin-bottom:10px}
 .art-title{font-family:var(--f-head);font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.3}
+
+/* KNOWLEDGES & POSTERS DESIGN ADDITIONS */
+.knowledge-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:border-color .3s,transform .3s}
+.knowledge-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
+.k-cat{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3);margin-bottom:14px}
+.k-title{font-family:var(--f-head);font-size:20px;font-weight:700;color:var(--white);margin-bottom:12px}
+.k-content{font-size:14px;color:var(--text);line-height:1.75}
+.k-content h1,.k-content h2,.k-content h3{color:var(--white);margin:14px 0 8px;font-family:var(--f-head)}
+.k-content ul,.k-content ol{padding-left:20px;margin-bottom:12px}
+.k-content a{color:var(--gold);text-decoration:none}
+.k-content table{width:100%;border-collapse:collapse;margin:12px 0}
+.k-content td,.k-content th{border:1px solid var(--border);padding:8px;font-size:13px}
+
+.posters-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.poster-card{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
+.poster-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px)}
+.p-img-box{position:relative;width:100%;aspect-ratio:4/5;background:var(--navy3);overflow:hidden;border-bottom:1px solid var(--border)}
+.p-img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.poster-card:hover .p-img{transform:scale(1.03)}
+.p-box-body{padding:24px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.p-box-top{margin-bottom:16px}
+.p-box-meta{font-size:11px;color:var(--gray);margin-bottom:6px}
+.p-box-title{font-family:var(--f-head);font-size:18px;font-weight:700;color:var(--white);margin-bottom:4px}
+.p-box-circ{font-size:13px;color:var(--gold);font-weight:500;margin-bottom:10px}
+.p-box-desc{font-size:13px;color:var(--gray);line-height:1.6}
+.p-box-actions{display:flex;gap:10px;margin-top:16px}
+.p-box-actions .btn{padding:8px 16px;font-size:12px;border-radius:6px;flex:1;justify-content:center}
+
+/* WYSIWYG Editor specific */
+.wysiwyg-editor{min-height:160px;background:var(--navy3);border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--white);font-family:var(--f-body);font-size:14px;outline:none;overflow-y:auto}
+.wysiwyg-editor:focus{border-color:var(--gold)}
 
 /* CONTACT */
 #contact{text-align:center}
@@ -292,6 +323,7 @@ footer em{color:var(--gold);font-style:normal}
   .adm-body{padding:16px}
   footer{flex-direction:column;gap:8px;text-align:center;padding:20px}
   .projects-grid{grid-template-columns:1fr}
+  .posters-grid{grid-template-columns:1fr}
 }
 @media(max-width:380px){
   .hero-name{font-size:30px;letter-spacing:-1px}
@@ -319,6 +351,8 @@ footer em{color:var(--gold);font-style:normal}
     <a href="#services">Services</a>
     <a href="#projects">Projets</a>
     <a href="#skills">Compétences</a>
+    <a href="#knowledges">Connaissances</a>
+    <a href="#posters">Affiches</a>
     <a href="#parcours">Parcours</a>
     <a href="#contact">Contact</a>
     <a href="cv.pdf" class="nav-cv" download aria-label="Télécharger le CV PDF">⬇ CV</a>
@@ -392,6 +426,22 @@ footer em{color:var(--gold);font-style:normal}
   </div>
 </section>
 
+<!-- CONNAISSANCES -->
+<section id="knowledges" aria-labelledby="knowledges-heading">
+  <div class="s-tag" id="knowledges-tag">CONNAISSANCES</div>
+  <h2 class="s-title" id="knowledges-heading">Notes &amp; Base de Connaissances</h2>
+  <p class="s-sub" id="knowledges-sub">Partage de notions, documentations techniques et fiches de synthèse.</p>
+  <div class="projects-grid fu" id="knowledges-grid" role="list"></div>
+</section>
+
+<!-- AFFICHES -->
+<section id="posters" aria-labelledby="posters-heading">
+  <div class="s-tag" id="posters-tag">AFFICHES</div>
+  <h2 class="s-title" id="posters-heading">Galerie Graphique &amp; Événements</h2>
+  <p class="s-sub" id="posters-sub">Découvrez les affiches, bannières et supports visuels créés pour diverses occasions.</p>
+  <div class="posters-grid fu" id="posters-grid" role="list"></div>
+</section>
+
 <!-- PARCOURS -->
 <section id="parcours" aria-labelledby="parcours-heading">
   <div class="s-tag" id="parcours-tag">PARCOURS</div>
@@ -461,6 +511,8 @@ footer em{color:var(--gold);font-style:normal}
         <button class="adm-tab" data-tab="t-services" role="tab" aria-selected="false">Services</button>
         <button class="adm-tab" data-tab="t-projects" role="tab" aria-selected="false">Projets</button>
         <button class="adm-tab" data-tab="t-skills" role="tab" aria-selected="false">Compétences</button>
+        <button class="adm-tab" data-tab="t-knowledges" role="tab" aria-selected="false">Connaissances</button>
+        <button class="adm-tab" data-tab="t-posters" role="tab" aria-selected="false">Affiches</button>
         <button class="adm-tab" data-tab="t-parcours" role="tab" aria-selected="false">Parcours</button>
         <button class="adm-tab" data-tab="t-contact" role="tab" aria-selected="false">Contact</button>
       </div>
@@ -591,6 +643,41 @@ footer em{color:var(--gold);font-style:normal}
           <button class="ab ab-gold" id="btn-add-tool">➕ Ajouter outil &amp; publier</button>
         </div>
 
+        <!-- CONNAISSANCES -->
+        <div class="adm-sec" id="t-knowledges" role="tabpanel">
+          <div class="save-progress" id="prog-knowledges"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="kn-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvelle Fiche de Connaissance</div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Titre</div><input class="f-input" id="kn-tit"></div>
+            <div class="f-group"><div class="f-label">Catégorie</div><input class="f-input" id="kn-cat" placeholder="Web, GRC, Cryptographie..."></div>
+          </div>
+          <div class="f-group">
+            <div class="f-label">Contenu Riche (WYSIWYG - Coller directement depuis ChatGPT / Claude)</div>
+            <div class="wysiwyg-editor" id="kn-content" contenteditable="true" role="textbox"></div>
+          </div>
+          <button class="ab ab-gold" id="btn-add-kn">➕ Ajouter &amp; publier</button>
+        </div>
+
+        <!-- AFFICHES -->
+        <div class="adm-sec" id="t-posters" role="tabpanel">
+          <div class="save-progress" id="prog-posters"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="po-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvelle Affiche</div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Titre</div><input class="f-input" id="po-tit"></div>
+            <div class="f-group"><div class="f-label">URL de l'image</div><input class="f-input" id="po-img" placeholder="images/affiche1.png"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Date de création</div><input class="f-input" id="po-date" placeholder="Ex: Octobre 2025"></div>
+            <div class="f-group"><div class="f-label">Circonstance / Événement</div><input class="f-input" id="po-circ" placeholder="Ex: Hackathon NetBlue"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Description facultative</div><textarea class="f-ta" id="po-desc"></textarea></div>
+          <button class="ab ab-gold" id="btn-add-po">➕ Ajouter &amp; publier</button>
+        </div>
+
         <!-- PARCOURS -->
         <div class="adm-sec" id="t-parcours" role="tabpanel">
           <div class="save-progress" id="prog-parcours"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
@@ -643,27 +730,6 @@ footer em{color:var(--gold);font-style:normal}
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════════
-   SECURITE — MOT DE PASSE ADMIN (Hash SHA-256)
-
-   ⚠ RISQUE DOCUMENTE : Comparaison côté client uniquement.
-     Un attaquant avec accès au bundle JS peut tenter une attaque
-     hors-ligne sur le hash. Ce mécanisme bloque les curieux, pas
-     un attaquant ciblé avec des ressources.
-
-   MIGRATION RECOMMANDEE pour déploiement public :
-   → Cloudflare Worker / Vercel Edge Function qui détient le token
-     GitHub côté serveur et expose /api/save protégé par password.
-     Zéro token ni hash exposé côté client.
-
-   CHANGER LE MOT DE PASSE :
-   1. Ouvrez la console du navigateur sur votre site.
-   2. Exécutez : generatePassHash('votre_nouveau_mdp')
-   3. Copiez le hash affiché et remplacez PASS_HASH ci-dessous.
-   OU via PowerShell :
-     $b=[System.Text.Encoding]::UTF8.GetBytes("votre_mdp")
-     [BitConverter]::ToString([System.Security.Cryptography.SHA256]::Create().ComputeHash($b)).Replace("-","").ToLower()
-═══════════════════════════════════════════════════════════════════ */
 const PASS_HASH = '3d2d940665a34415e08f6814661e6898a6f8fd7035d9a8093f8f747b18513fc2';
 
 async function generatePassHash(pw) {
@@ -729,6 +795,8 @@ const DEF = {
   ],
   tools:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng","Wireshark","ArcSight","QRadar","Netdata","Python","Flask","Git","JWT","AES-256","bcrypt","curl","OSINT Framework"],
   toolsOffensive:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng"],
+  knowledges: [],
+  posters: [],
   edu:[
     {n:"Licence 3 – Sécurité Informatique (en cours)",o:"IFRI – Université d'Abomey-Calavi, Bénin",d:"2023 – présent"},
     {n:"Baccalauréat Série D – Mention Bien",o:"Bénin",d:"2023"}
@@ -743,9 +811,6 @@ const DEF = {
     {type:"linkedin",lbl:"linkedin.com/in/venancehoundete",lnk:"https://linkedin.com/in/venancehoundete"},
     {type:"github",  lbl:"github.com/venance10",            lnk:"https://github.com/venance10"}
   ],
-  /* ═══ Veille / Articles : remplir pour activer la section
-    Structure : { titre, titreEn, date, lien, tags:[] }
-  ═══ */
   articles: []
 };
 
@@ -806,13 +871,17 @@ function setLang(l){
   setTxt('projects-sub',  t?'Real projects for real organizations. Not theoretical exercises.':'Des projets réels, pour de vraies organisations. Pas des exercices théoriques.');
   setTxt('skills-tag',    t?'SKILLS':'COMPÉTENCES');
   setTxt('tools-title',   t?'TOOLS & SOFTWARE':'OUTILS & LOGICIELS');
+  setTxt('knowledges-tag',t?'KNOWLEDGES':'CONNAISSANCES');
+  setTxt('knowledges-sub',t?'Sharing conceptual definitions, technical documentations and briefing sheets.':'Partage de notions, documentations techniques et fiches de synthèse.');
+  setTxt('posters-tag',   t?'POSTERS':'AFFICHES');
+  setTxt('posters-sub',   t?'Discover posters, banner ads and visuals designed for various key events.':'Découvrez les affiches, bannières et supports visuels créés pour diverses occasions.');
   setTxt('parcours-tag',  t?'BACKGROUND':'PARCOURS');
   setTxt('pc-edu',        t?'EDUCATION':'FORMATION');
   setTxt('pc-cert',       t?'CERTIFICATIONS':'CERTIFICATIONS');
   setTxt('articles-tag',  t?'CYBERSECURITY WATCH':'VEILLE CYBERSÉCURITÉ');
   setTxt('articles-sub',  t?'Experience reports, vulnerability analyses and security watch.':'Retours d\'expérience, analyses de vulnérabilités et veille sécurité.');
   setTxt('contact-tag',   t?'CONTACT':'CONTACT');
-  setTxt('contact-desc',  t?'Need a security audit, penetration test or GRC/compliance support? Write to me directly.':'Besoin d\'un audit de sécurité, d\'un test d\'intrusion ou d\'un accompagnement GRC/conformité ? Écrivez-moi directement.');
+  setTxt('contact-desc',  t?'Need a security audit, penetration test or GRC/compliance support? Write to me directly.':'Besoin d\'un audit de sécurité, d\'un test d\'intrusion ou d'un accompagnement GRC/conformité ? Écrivez-moi directement.');
   render();
 }
 function setTxt(id,txt){const el=document.getElementById(id);if(el)el.textContent=txt;}
@@ -876,6 +945,34 @@ function render(){
   const offSet=new Set(D.toolsOffensive||[]);
   document.getElementById('tools-chips').innerHTML=(D.tools||[]).map(t=>
     `<div class="tool${offSet.has(t)?' tool-red':''}">${t}</div>`).join('');
+
+  /* RENDER CONNAISSANCES */
+  document.getElementById('knowledges-grid').innerHTML = (D.knowledges || []).map(k => `
+    <div class="knowledge-card" role="listitem">
+      <span class="k-cat">${k.cat}</span>
+      <div class="k-title">${k.tit}</div>
+      <div class="k-content">${k.content}</div>
+    </div>`).join('');
+
+  /* RENDER AFFICHES */
+  document.getElementById('posters-grid').innerHTML = (D.posters || []).map(p => `
+    <div class="poster-card" role="listitem">
+      <div class="p-img-box">
+        <img src="${p.img}" class="p-img" alt="${p.tit}" loading="lazy">
+      </div>
+      <div class="p-box-body">
+        <div class="p-box-top">
+          <div class="p-box-meta">${p.date}</div>
+          <div class="p-box-title">${p.tit}</div>
+          <div class="p-box-circ">${p.circ}</div>
+          ${p.desc ? `<div class="p-box-desc">${p.desc}</div>` : ''}
+        </div>
+        <div class="p-box-actions">
+          <a href="${p.img}" target="_blank" class="btn btn-outline">${lang === 'en' ? 'View' : 'Voir'}</a>
+          <a href="${p.img}" download="${p.tit}" class="btn btn-gold">${lang === 'en' ? 'Download' : 'Télécharger'}</a>
+        </div>
+      </div>
+    </div>`).join('');
 
   document.getElementById('edu-timeline').innerHTML=D.edu.map(e=>`
     <div class="tl-item"><div class="tl-date">${e.d}</div><div class="tl-name">${e.n}</div><div class="tl-sub">${e.o}</div></div>`).join('');
@@ -967,6 +1064,12 @@ function renderAdmLists(){
     <div class="item-e"><div><div class="item-e-name">${lang==='en'?p.tite:p.tit}</div><div class="item-e-sub">${p.org} · ${p.date}</div></div><button class="ib del" onclick="delPrj(${i})">Supprimer</button></div>`).join('');
   document.getElementById('sk-list-adm').innerHTML=D.skills.map((s,i)=>`
     <div class="item-e"><div><div class="item-e-name">${s.n}</div><div class="item-e-sub">${s.c} · ${s.l}%</div></div><button class="ib del" onclick="delSk(${i})">Supprimer</button></div>`).join('');
+  
+  document.getElementById('kn-list-adm').innerHTML=(D.knowledges || []).map((k,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${k.tit}</div><div class="item-e-sub">${k.cat}</div></div><div style="display:flex;gap:6px;"><button class="ib" onclick="upKn(${i})">▲</button><button class="ib" onclick="downKn(${i})">▼</button><button class="ib del" onclick="delKn(${i})">Supprimer</button></div></div>`).join('');
+  document.getElementById('po-list-adm').innerHTML=(D.posters || []).map((p,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${p.tit}</div><div class="item-e-sub">${p.date} · ${p.circ}</div></div><button class="ib del" onclick="delPo(${i})">Supprimer</button></div>`).join('');
+
   document.getElementById('edu-list-adm').innerHTML=D.edu.map((e,i)=>`
     <div class="item-e"><div><div class="item-e-name">${e.n}</div><div class="item-e-sub">${e.o}</div></div><button class="ib del" onclick="delEdu(${i})">Supprimer</button></div>`).join('');
   document.getElementById('cert-list-adm').innerHTML=D.certs.map((c,i)=>`
@@ -981,6 +1084,11 @@ function delSk(i) {D.skills.splice(i,1);  saveSection('prog-skills','',  {skills
 function delEdu(i){D.edu.splice(i,1);     saveSection('prog-parcours','',{edu:D.edu});         renderAdmLists();}
 function delCert(i){D.certs.splice(i,1);  saveSection('prog-parcours','',{certs:D.certs});     renderAdmLists();}
 function delCt(i){D.contacts.splice(i,1); saveSection('prog-contact','', {contacts:D.contacts});renderAdmLists();}
+
+function delKn(i){D.knowledges.splice(i,1);saveSection('prog-knowledges','',{knowledges:D.knowledges});renderAdmLists();}
+function delPo(i){D.posters.splice(i,1);saveSection('prog-posters','',{posters:D.posters});renderAdmLists();}
+function upKn(i){if(i>0){const tmp=D.knowledges[i];D.knowledges[i]=D.knowledges[i-1];D.knowledges[i-1]=tmp;saveSection('prog-knowledges','',{knowledges:D.knowledges});renderAdmLists();}}
+function downKn(i){if(i<D.knowledges.length-1){const tmp=D.knowledges[i];D.knowledges[i]=D.knowledges[i+1];D.knowledges[i+1]=tmp;saveSection('prog-knowledges','',{knowledges:D.knowledges});renderAdmLists();}}
 
 function g(id){return(document.getElementById(id)||{}).value||'';}
 
@@ -1083,6 +1191,25 @@ function initAdminEvents(){
     document.getElementById('tk-n').value='';
   });
 
+  /* Knowledge WYSIWYG Add */
+  document.getElementById('btn-add-kn').addEventListener('click',()=>{
+    const richContent = document.getElementById('kn-content').innerHTML;
+    const k={tit:g('kn-tit'),cat:g('kn-cat')||'Général',content:richContent};
+    if(!k.tit || !richContent.trim()){toast('❌ Titre et contenu requis',true);return;}
+    if(!D.knowledges) D.knowledges = [];
+    D.knowledges.push(k);saveSection('prog-knowledges','',{knowledges:D.knowledges});renderAdmLists();
+    document.getElementById('kn-tit').value='';document.getElementById('kn-cat').value='';document.getElementById('kn-content').innerHTML='';
+  });
+
+  /* Poster Add */
+  document.getElementById('btn-add-po').addEventListener('click',()=>{
+    const p={tit:g('po-tit'),img:g('po-img')||'images/affiche.png',date:g('po-date'),circ:g('po-circ'),desc:g('po-desc')};
+    if(!p.tit){toast('❌ Titre requis',true);return;}
+    if(!D.posters) D.posters = [];
+    D.posters.push(p);saveSection('prog-posters','',{posters:D.posters});renderAdmLists();
+    ['po-tit','po-img','po-date','po-circ','po-desc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
   /* Edu */
   document.getElementById('btn-add-edu').addEventListener('click',()=>{
     const e={n:g('e-n'),o:g('e-o'),d:g('e-d')};if(!e.n){toast('❌ Intitulé requis',true);return;}
@@ -1128,7 +1255,6 @@ async function init(){
     const r=await fetch('./data.json?t='+Date.now());
     if(r.ok){
       const remote=await r.json();
-      /* Fusionner avec DEF pour garantir toutes les nouvelles clés */
       D={...JSON.parse(JSON.stringify(DEF)),...remote};
     }
   }catch(e){
