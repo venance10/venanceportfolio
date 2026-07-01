@@ -1,991 +1,1145 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Venance Houndété — Cybersécurité · GRC · Pentest Web</title>
 
-
-
 <!-- SEO -->
-
 <meta name="description" content="Venance Arnolde Yéminvènon Houndété — Étudiant L3 Sécurité Informatique (IFRI/UAC, Bénin). Audit GRC, pentest web black-box, conformité ISO 27001. Freelance cybersécurité.">
-
 <meta name="keywords" content="cybersécurité, pentest, GRC, ISO 27001, audit, Bénin, Abomey-Calavi, Houndété, IFRI">
-
 <meta name="author" content="Venance Arnolde Yéminvènon Houndété">
-
 <link rel="canonical" href="https://venance10.github.io/venanceportfolio/">
 
-
-
 <!-- Open Graph -->
-
 <meta property="og:type" content="website">
-
 <meta property="og:url" content="https://venance10.github.io/venanceportfolio/">
-
 <meta property="og:title" content="Venance Houndété — Cybersécurité · GRC · Pentest Web">
-
 <meta property="og:description" content="Audit GRC documentaire, tests d'intrusion web black-box, conformité ISO 27001. Basé à Abomey-Calavi, Bénin. Disponible pour missions freelance.">
-
 <meta property="og:image" content="https://venance10.github.io/venanceportfolio/og-image.png">
-
 <meta property="og:locale" content="fr_FR">
-
 <meta property="og:locale:alternate" content="en_GB">
 
-
-
 <!-- Twitter Card -->
-
 <meta name="twitter:card" content="summary_large_image">
-
 <meta name="twitter:title" content="Venance Houndété — Cybersécurité · GRC · Pentest Web">
-
 <meta name="twitter:description" content="Audit GRC, pentest web, conformité ISO 27001. Freelance cybersécurité au Bénin.">
-
-
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
-
 <style>
-
 :root{
-
   --navy:#0A1628;--navy2:#0F1F38;--navy3:#162947;
-
   --gold:#C9A84C;--gold2:#E8C97A;
-
   --red:#FF6060;--red-bg:rgba(255,80,80,.12);--red-border:rgba(255,80,80,.25);
-
   --white:#F4F1EC;--gray:#8A9BB0;--border:#1E3050;--text:#D4CBBE;
-
   --f-head:'Fraunces',serif;--f-body:'Plus Jakarta Sans',sans-serif;
-
   --r:12px;
-
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
 body{background:var(--navy);color:var(--text);font-family:var(--f-body);font-weight:400;overflow-x:hidden;line-height:1.7}
-
 body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-
   background:radial-gradient(ellipse 60% 40% at 80% 10%,rgba(201,168,76,.07) 0%,transparent 60%),
-
              radial-gradient(ellipse 50% 60% at 10% 80%,rgba(201,168,76,.05) 0%,transparent 60%)}
 
-
-
 /* LOADING */
-
 #loading-overlay{position:fixed;inset:0;z-index:9999;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .5s ease}
-
 #loading-overlay.hide{opacity:0;pointer-events:none}
-
 .ld-logo{font-family:var(--f-head);font-size:32px;font-weight:900;color:var(--white)}
-
 .ld-logo span{color:var(--gold);font-style:italic}
-
 .ld-spinner{width:36px;height:36px;border:3px solid rgba(201,168,76,.25);border-top-color:var(--gold);border-radius:50%;animation:spin .9s linear infinite}
-
 .ld-text{font-size:13px;color:var(--gray);letter-spacing:1px}
-
 @keyframes spin{to{transform:rotate(360deg)}}
 
-
-
 /* NAV */
-
 nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:70px;background:rgba(10,22,40,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-
 .nav-brand{font-family:var(--f-head);font-size:20px;font-weight:700;color:var(--white)}
-
 .nav-brand span{color:var(--gold)}
-
 .nav-links{display:flex;align-items:center;gap:28px}
-
 .nav-links a{font-size:13px;font-weight:500;color:var(--gray);text-decoration:none;transition:color .25s}
-
 .nav-links a:hover{color:var(--white)}
-
 .nav-cv{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:6px 14px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:20px;color:var(--gold)!important;transition:all .25s}
-
 .nav-cv:hover{background:rgba(201,168,76,.22);transform:translateY(-1px)}
-
 .lang-toggle{display:flex;background:var(--navy3);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-left:8px}
-
 .lang-btn{font-family:var(--f-body);font-size:12px;font-weight:600;padding:6px 14px;background:transparent;color:var(--gray);border:none;cursor:pointer;transition:background .2s,color .2s}
-
 .lang-btn.active{background:var(--gold);color:var(--navy);border-radius:20px}
 
-
-
 /* HERO */
-
 #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:100px 60px 60px;position:relative;z-index:1}
-
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:30px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px}
-
 .hero-eyebrow::before{content:'●';font-size:8px;animation:blink 2s infinite}
-
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
 .hero-name{font-family:var(--f-head);font-size:clamp(38px,5.5vw,76px);font-weight:900;color:var(--white);line-height:1.0;letter-spacing:-2px;margin-bottom:8px}
-
 .hero-name .accent{color:var(--gold);font-style:italic}
-
 .hero-title{font-size:18px;font-weight:300;color:var(--gray);margin-bottom:28px;letter-spacing:.5px;min-height:28px}
-
 .hero-desc{font-size:16px;line-height:1.85;color:var(--text);max-width:500px;margin-bottom:44px}
-
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-size:14px;font-weight:600;padding:14px 28px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;transition:all .25s;letter-spacing:.3px}
-
 .btn-gold{background:var(--gold);color:var(--navy)}
-
 .btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
-
 .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
-
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-
 .btn-cv{background:transparent;color:var(--gold);border:1.5px solid rgba(201,168,76,.4)}
-
 .btn-cv:hover{background:rgba(201,168,76,.1);border-color:var(--gold);transform:translateY(-2px)}
-
 .hero-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
 .stat-card{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:border-color .3s,transform .3s}
-
 .stat-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
-
 .stat-card:first-child{grid-column:span 2;display:flex;align-items:center;gap:24px}
-
 .stat-num{font-family:var(--f-head);font-size:48px;font-weight:900;color:var(--gold);line-height:1}
-
 .stat-label{font-size:13px;color:var(--gray);margin-top:6px;line-height:1.4}
-
 .stat-icon{font-size:28px;margin-bottom:12px}
 
-
-
 /* SECTIONS */
-
 section{padding:96px 60px;position:relative;z-index:1}
-
 section:nth-child(even){background:var(--navy2)}
-
 .s-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-
 .s-title{font-family:var(--f-head);font-size:clamp(28px,3.5vw,48px);font-weight:700;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
-
 .s-sub{font-size:16px;color:var(--gray);max-width:560px;line-height:1.7;margin-bottom:56px}
 
-
-
 /* ABOUT */
-
 .about-layout{display:grid;grid-template-columns:3fr 2fr;gap:64px;align-items:start}
-
 .about-body{font-size:16px;line-height:1.9;color:var(--text)}
-
 .about-body p{margin-bottom:20px}
-
 .info-list{display:flex;flex-direction:column;gap:12px}
-
 .info-item{background:var(--navy3);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;transition:border-color .25s}
-
 .info-item:hover{border-color:rgba(201,168,76,.35)}
-
 .info-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
-
 .info-val{font-size:14px;color:var(--text)}
 
-
-
 /* SERVICES */
-
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-
 .service-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
-
 .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform .35s}
-
 .service-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
-
 .service-card:hover::after{transform:scaleX(1)}
-
 .svc-icon{font-size:32px;margin-bottom:18px}
-
 .svc-line{width:32px;height:2px;background:var(--gold);margin-bottom:16px}
-
 .svc-name{font-family:var(--f-head);font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
-
 .svc-text{font-size:14px;color:var(--gray);line-height:1.75}
 
-
-
 /* PROJECTS */
-
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
-
 .project-card{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:36px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
-
 .project-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.35)}
-
 .p-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3);margin-bottom:20px}
-
 .p-badge-pentest{background:rgba(255,80,80,.15);color:#FF8080;border:1px solid rgba(255,80,80,.35)}
-
 .p-badge-hack{background:rgba(100,150,255,.12);color:#7BA3FF;border:1px solid rgba(100,150,255,.3)}
-
 .p-date{font-size:11px;color:var(--gray);margin-bottom:8px}
-
 .p-name{font-family:var(--f-head);font-size:22px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.3}
-
 .p-org{font-size:13px;color:var(--gold);margin-bottom:20px;font-weight:500}
-
 .p-list{list-style:none;margin-bottom:24px}
-
 .p-list li{font-size:14px;color:var(--text);padding:5px 0 5px 18px;position:relative;line-height:1.65}
-
 .p-list li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:12px;top:6px}
-
 .p-list li.critical::before{content:'⚠';color:#FF8080}
-
 .p-list li.critical{color:#FFB3B3}
-
 .p-chips{display:flex;flex-wrap:wrap;gap:8px}
-
 .chip{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.2)}
-
 .chip-red{background:rgba(255,80,80,.1);color:#FF8080;border:1px solid rgba(255,80,80,.25)}
 
-
-
 /* SKILLS */
-
 .skills-layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px}
-
 .sk-group-name{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-
 .sk-row{margin-bottom:16px}
-
 .sk-top{display:flex;justify-content:space-between;margin-bottom:8px}
-
 .sk-name{font-size:14px;color:var(--text)}
-
 .sk-pct{font-size:12px;color:var(--gray)}
-
 .sk-track{height:4px;background:var(--navy3);border-radius:2px;overflow:hidden}
-
 .sk-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
-
 .sk-fill-red{background:linear-gradient(90deg,#FF6060,#FF9090)}
-
 .tools-wrap{margin-top:48px}
-
 .tools-title{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
-
 .tools-chips{display:flex;flex-wrap:wrap;gap:10px}
-
 .tool{font-size:13px;font-weight:500;padding:8px 18px;border-radius:30px;background:var(--navy2);border:1px solid var(--border);color:var(--gray);transition:all .25s;cursor:default}
-
 .tool:hover{border-color:var(--gold);color:var(--gold)}
-
 .tool-red{border-color:rgba(255,80,80,.25);color:#FF8080}
-
 .tool-red:hover{border-color:#FF8080;background:rgba(255,80,80,.05)}
 
-
-
 /* PARCOURS */
-
 .parcours-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-
 .pc-title{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px}
-
 .timeline{position:relative;padding-left:28px}
-
 .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--gold),transparent)}
-
 .tl-item{position:relative;margin-bottom:36px}
-
 .tl-item::before{content:'';position:absolute;left:-32px;top:6px;width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
-
 .tl-date{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;margin-bottom:6px}
-
 .tl-name{font-family:var(--f-head);font-size:17px;font-weight:700;color:var(--white);margin-bottom:4px}
-
 .tl-sub{font-size:13px;color:var(--gray);line-height:1.6}
 
-
-
 /* ARTICLES */
-
 #articles{display:none}
-
 #articles.has-content{display:block}
-
 .articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-
 .article-card{background:var(--navy3);border:1px solid var(--border);border-radius:var(--r);padding:28px;text-decoration:none;display:block;transition:border-color .3s,transform .3s}
-
 .article-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
-
 .art-date{font-size:11px;color:var(--gray);margin-bottom:10px}
-
 .art-title{font-family:var(--f-head);font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.3}
 
-
-
 /* CONTACT */
-
 #contact{text-align:center}
-
 .contact-desc{font-size:17px;color:var(--text);max-width:520px;margin:0 auto 48px;line-height:1.8}
-
 .contact-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
-
 .contact-card{display:flex;align-items:center;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:16px 24px;text-decoration:none;color:var(--text);font-size:14px;font-weight:500;transition:all .25s}
-
 .contact-card:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.05);transform:translateY(-2px)}
-
 .contact-card svg{width:18px;height:18px;flex-shrink:0}
 
-
-
 /* FOOTER */
-
 footer{background:var(--navy);border-top:1px solid var(--border);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--gray);position:relative;z-index:1}
-
 footer em{color:var(--gold);font-style:normal}
 
-
-
 /* ADMIN TRIGGER */
-
 #admin-trigger{position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:var(--navy2);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:800;opacity:.35;transition:opacity .3s,border-color .3s,transform .3s;font-size:18px;user-select:none}
-
 #admin-trigger:hover{opacity:1;border-color:var(--gold);transform:scale(1.1)}
 
-
-
 /* ADMIN OVERLAY */
-
 #admin-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);justify-content:center;align-items:center}
-
 #admin-overlay.open{display:flex}
-
 #admin-panel{background:var(--navy2);border:1px solid var(--border);border-radius:16px;width:min(94vw,920px);max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 80px rgba(0,0,0,.6)}
-
 .adm-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid var(--border);background:var(--navy3)}
-
 .adm-title{font-family:var(--f-head);font-size:20px;font-weight:700;color:var(--white)}
-
 .adm-close{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--border);border-radius:50%;color:var(--gray);cursor:pointer;font-size:18px;transition:all .2s}
-
 .adm-close:hover{border-color:var(--gold);color:var(--gold)}
-
 .adm-tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;padding:0 28px;background:var(--navy3);scrollbar-width:none}
-
 .adm-tabs::-webkit-scrollbar{display:none}
-
 .adm-tab{font-size:13px;font-weight:600;padding:14px 18px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--gray);cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
-
 .adm-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
-
 .adm-body{flex:1;overflow-y:auto;padding:28px;display:flex;flex-direction:column;gap:20px}
-
 .adm-sec{display:none;flex-direction:column;gap:18px}
-
 .adm-sec.active{display:flex}
-
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
 .f-group{display:flex;flex-direction:column;gap:8px}
-
 .f-group.full{grid-column:span 2}
-
 .f-label{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
-
 .f-input,.f-ta,.f-sel{background:var(--navy3);border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--white);font-family:var(--f-body);font-size:14px;transition:border-color .25s;outline:none;width:100%}
-
 .f-input:focus,.f-ta:focus{border-color:var(--gold)}
-
 .f-ta{min-height:90px;resize:vertical}
-
 .f-hint{font-size:12px;color:var(--gray)}
-
 .f-hint.warn{color:#FFAA44}
-
 .ab{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-size:13px;font-weight:700;padding:11px 22px;border-radius:8px;cursor:pointer;border:none;transition:all .2s}
-
 .ab:disabled{opacity:.5;cursor:not-allowed}
-
 .ab-gold{background:var(--gold);color:var(--navy)}
-
 .ab-gold:hover:not(:disabled){background:var(--gold2)}
-
 .ab-2nd{background:var(--navy3);color:var(--text);border:1px solid var(--border)}
-
 .ab-2nd:hover{border-color:var(--gold);color:var(--gold)}
-
 .ab-del{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-
 .ab-del:hover{background:rgba(255,80,80,.22)}
-
 .adm-div{height:1px;background:var(--border)}
-
 .item-list{display:flex;flex-direction:column;gap:10px}
-
 .item-e{display:flex;align-items:center;justify-content:space-between;background:var(--navy3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;gap:12px}
-
 .item-e-name{font-size:14px;color:var(--white);font-weight:500}
-
 .item-e-sub{font-size:12px;color:var(--gray);margin-top:2px}
-
 .ib{font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--gray);transition:all .2s;flex-shrink:0}
-
 .ib:hover{border-color:var(--gold);color:var(--gold)}
-
 .ib.del:hover{border-color:var(--red);color:var(--red)}
 
-
-
 /* Risk warning box */
-
 .risk-box{background:rgba(255,170,0,.08);border:1px solid rgba(255,170,0,.3);border-radius:10px;padding:16px;display:flex;gap:12px;align-items:flex-start}
-
 .risk-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-
 .risk-text{font-size:13px;color:#FFBB44;line-height:1.65}
-
 .risk-text strong{color:#FFDD88}
 
-
-
 /* Login */
-
 #adm-login{display:flex;flex-direction:column;align-items:center;gap:20px;padding:48px 28px;text-align:center}
-
 .lg-title{font-family:var(--f-head);font-size:24px;font-weight:700;color:var(--white)}
-
 .lg-sub{font-size:14px;color:var(--gray);max-width:380px}
-
 .lg-form{display:flex;flex-direction:column;gap:14px;width:100%;max-width:340px}
-
 .lg-err{font-size:13px;color:var(--red);display:none}
 
-
-
 /* GitHub status */
-
 .github-box{background:var(--navy3);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:20px;margin-bottom:4px}
-
 .github-box-title{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-
 .github-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 12px;border-radius:20px;font-weight:600}
-
 .github-status.ok{background:rgba(50,200,100,.15);color:#50c878;border:1px solid rgba(50,200,100,.3)}
-
 .github-status.nok{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-
 .github-status.none{background:rgba(138,155,176,.1);color:var(--gray);border:1px solid var(--border)}
-
 .save-progress{display:none;align-items:center;gap:10px;font-size:13px;color:var(--gold);padding:10px 0}
-
 .save-progress.show{display:flex}
 
-
-
 /* Toast */
-
 #toast{position:fixed;bottom:90px;right:28px;background:var(--gold);color:var(--navy);padding:12px 22px;border-radius:8px;font-size:14px;font-weight:700;transform:translateY(20px);opacity:0;transition:all .3s;pointer-events:none;z-index:9999}
-
 #toast.show{transform:translateY(0);opacity:1}
-
 #toast.err{background:var(--red);color:white}
 
-
-
 /* Scroll animations */
-
 .fu{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-
 .fu.vis{opacity:1;transform:translateY(0)}
 
-
-
 /* Reduced motion */
-
 @media(prefers-reduced-motion:reduce){
-
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
-
   .fu{opacity:1;transform:none}
-
   html{scroll-behavior:auto}
-
 }
-
-
 
 /* Scrollbar */
-
 ::-webkit-scrollbar{width:5px}
-
 ::-webkit-scrollbar-track{background:var(--navy)}
-
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-
 ::-webkit-scrollbar-thumb:hover{background:var(--gold)}
 
-
-
 /* Responsive */
-
 @media(max-width:900px){
-
   nav{padding:0 20px}
-
   .nav-links a:not(.nav-cv):not([class*="lang"]){display:none}
-
   .lang-toggle{margin-left:4px}
-
   #hero{grid-template-columns:1fr;padding:100px 20px 60px;gap:40px}
-
   .hero-right{grid-template-columns:1fr 1fr}
-
   .hero-name{font-size:clamp(34px,9vw,56px)}
-
   section{padding:70px 20px}
-
   .about-layout,.parcours-layout{grid-template-columns:1fr;gap:40px}
-
   .f-row{grid-template-columns:1fr}
-
   .f-group.full{grid-column:span 1}
-
   .adm-body{padding:16px}
-
   footer{flex-direction:column;gap:8px;text-align:center;padding:20px}
-
   .projects-grid{grid-template-columns:1fr}
-
 }
-
 @media(max-width:380px){
-
   .hero-name{font-size:30px;letter-spacing:-1px}
-
   .hero-actions{flex-direction:column}
-
   .btn{width:100%;justify-content:center}
-
   .stat-card:first-child{flex-direction:column;gap:12px}
-
   .stat-num{font-size:36px}
-
 }
-
 </style>
-
 </head>
-
 <body>
 
-
-
 <!-- LOADING OVERLAY -->
-
 <div id="loading-overlay" role="status" aria-label="Chargement du portfolio">
-
   <div class="ld-logo">Venance <span>Houndété</span></div>
-
   <div class="ld-spinner"></div>
-
   <div class="ld-text">Chargement…</div>
-
 </div>
 
-
-
 <!-- NAV -->
-
 <nav role="navigation" aria-label="Navigation principale">
-
   <div class="nav-brand">Venance <span>Houndété</span></div>
-
   <div class="nav-links">
-
     <a href="#about">À propos</a>
-
     <a href="#services">Services</a>
-
     <a href="#projects">Projets</a>
-
     <a href="#skills">Compétences</a>
-
     <a href="#parcours">Parcours</a>
-
     <a href="#contact">Contact</a>
-
     <a href="cv.pdf" class="nav-cv" download aria-label="Télécharger le CV PDF">⬇ CV</a>
-
     <div class="lang-toggle" role="group" aria-label="Langue">
-
       <button class="lang-btn active" onclick="setLang('fr')" aria-pressed="true">🇫🇷 FR</button>
-
       <button class="lang-btn" onclick="setLang('en')" aria-pressed="false">🇬🇧 EN</button>
-
     </div>
-
   </div>
-
 </nav>
 
-
-
 <!-- HERO -->
-
 <section id="hero" aria-label="Présentation">
-
   <div class="fu">
-
     <div class="hero-eyebrow" id="hero-eyebrow">Disponible pour des missions</div>
-
     <h1 class="hero-name">Venance<br><span class="accent">Houndété</span></h1>
-
     <p class="hero-title" id="typing-el" aria-live="polite"></p>
-
     <p class="hero-desc" id="hero-desc"></p>
-
     <div class="hero-actions">
-
       <a href="#projects" class="btn btn-gold" id="btn-hero-work">Voir mon travail</a>
-
       <a href="cv.pdf" class="btn btn-cv" download id="btn-hero-cv">⬇ Télécharger mon CV</a>
-
       <a href="#contact" class="btn btn-outline" id="btn-hero-contact">Me contacter</a>
-
     </div>
-
   </div>
-
   <div class="hero-right fu">
-
     <div class="stat-card">
-
       <div>
-
         <div class="stat-num" id="stat1-num">18+</div>
-
         <div class="stat-label" id="stat1-lbl">Vulnérabilités identifiées lors d'audits web réels</div>
-
       </div>
-
     </div>
-
     <div class="stat-card"><div class="stat-icon">🛡️</div><div class="stat-num">33</div><div class="stat-label" id="stat2-lbl">Points de contrôle vérifiés (audit SI de l'UAC)</div></div>
-
     <div class="stat-card"><div class="stat-icon">📋</div><div class="stat-num">50+</div><div class="stat-label" id="stat3-lbl">Règles de sécurité rédigées (PSSI-UAC v2.0)</div></div>
-
     <div class="stat-card"><div class="stat-icon">📖</div><div class="stat-num">5</div><div class="stat-label" id="stat4-lbl">Normes maîtrisées (ISO 27001, 20000-1, ITIL 4, COBIT 2019, PSSIE)</div></div>
-
   </div>
-
 </section>
-
-
 
 <!-- ABOUT -->
-
 <section id="about" aria-labelledby="about-heading">
-
   <div class="s-tag" id="about-tag">À PROPOS</div>
-
   <h2 class="s-title" id="about-heading">Qui suis-je ?</h2>
-
   <div class="about-layout">
-
     <div class="about-body fu" id="about-body"></div>
-
     <div class="info-list fu" id="info-list"></div>
-
   </div>
-
 </section>
-
-
 
 <!-- SERVICES -->
-
 <section id="services" aria-labelledby="services-heading">
-
   <div class="s-tag" id="services-tag">SERVICES</div>
-
   <h2 class="s-title" id="services-heading">Ce que je fais concrètement</h2>
-
   <p class="s-sub" id="services-sub">Des missions claires avec des résultats concrets. Voici comment j'aide les organisations à mieux se protéger.</p>
-
   <div class="services-grid fu" id="services-grid" role="list"></div>
-
 </section>
-
-
 
 <!-- PROJETS -->
-
 <section id="projects" aria-labelledby="projects-heading">
-
   <div class="s-tag" id="projects-tag">PROJETS &amp; EXPÉRIENCES</div>
-
   <h2 class="s-title" id="projects-heading">Ce que j'ai réalisé</h2>
-
   <p class="s-sub" id="projects-sub">Des projets réels, pour de vraies organisations. Pas des exercices théoriques.</p>
-
   <div class="projects-grid fu" id="projects-grid" role="list"></div>
-
 </section>
-
-
 
 <!-- COMPÉTENCES -->
-
 <section id="skills" aria-labelledby="skills-heading">
-
   <div class="s-tag" id="skills-tag">COMPÉTENCES</div>
-
   <h2 class="s-title" id="skills-heading">Ce que je maîtrise</h2>
-
   <div class="skills-layout fu" id="skills-layout"></div>
-
   <div class="tools-wrap fu">
-
     <div class="tools-title" id="tools-title">OUTILS &amp; LOGICIELS</div>
-
     <div class="tools-chips" id="tools-chips"></div>
-
   </div>
-
 </section>
-
-
 
 <!-- PARCOURS -->
-
 <section id="parcours" aria-labelledby="parcours-heading">
-
   <div class="s-tag" id="parcours-tag">PARCOURS</div>
-
   <h2 class="s-title" id="parcours-heading">Formation &amp; Certifications</h2>
-
   <div class="parcours-layout fu">
-
     <div>
-
       <div class="pc-title" id="pc-edu">FORMATION</div>
-
       <div class="timeline" id="edu-timeline"></div>
-
     </div>
-
     <div>
-
       <div class="pc-title" id="pc-cert">CERTIFICATIONS</div>
-
       <div class="timeline" id="cert-timeline"></div>
-
     </div>
-
   </div>
-
 </section>
-
-
 
 <!-- VEILLE (masquée si vide) -->
-
 <section id="articles" aria-labelledby="articles-heading">
-
   <div class="s-tag" id="articles-tag">VEILLE CYBERSÉCURITÉ</div>
-
   <h2 class="s-title" id="articles-heading">Derniers articles</h2>
-
   <p class="s-sub" id="articles-sub">Retours d'expérience, analyses de vulnérabilités et veille sécurité.</p>
-
   <div class="articles-grid fu" id="articles-grid"></div>
-
 </section>
-
-
 
 <!-- CONTACT -->
-
 <section id="contact" aria-labelledby="contact-heading">
-
   <div class="s-tag" id="contact-tag">CONTACT</div>
-
   <h2 class="s-title" id="contact-heading">Travaillons ensemble</h2>
-
   <p class="contact-desc" id="contact-desc">Besoin d'un audit de sécurité, d'un test d'intrusion ou d'un accompagnement GRC/conformité ? Écrivez-moi directement.</p>
-
   <div class="contact-grid fu" id="contact-grid"></div>
-
 </section>
 
-
-
 <footer role="contentinfo">
-
   <div>© 2026 Venance Houndété</div>
-
   <div><em>Cybersécurité</em> · <em>GRC</em> · <em>Pentest Web</em> · Bénin 🇧🇯</div>
-
   <div id="footer-mail"></div>
-
 </footer>
 
-
-
 <!-- Admin trigger -->
-
 <div id="admin-trigger" title="Administration" role="button" tabindex="0" aria-label="Ouvrir le panel d'administration" aria-haspopup="dialog">⚙</div>
-
 <div id="toast" role="alert" aria-live="polite"></div>
 
-
-
 <!-- ADMIN PANEL -->
-
 <div id="admin-overlay" role="dialog" aria-modal="true" aria-labelledby="adm-title">
-
   <div id="admin-panel">
 
-
-
     <div id="adm-login">
-
       <div style="font-size:48px" aria-hidden="true">🔐</div>
-
       <div class="lg-title" id="adm-title">Administration</div>
-
       <div class="lg-sub">Entrez votre mot de passe pour modifier le site</div>
-
       <div class="lg-form">
-
         <input class="f-input" type="password" id="adm-pw" placeholder="Mot de passe…" aria-label="Mot de passe" autocomplete="current-password">
-
         <div class="lg-err" id="lg-err" role="alert">❌ Mot de passe incorrect</div>
-
         <button class="ab ab-gold" id="btn-login">→ Entrer</button>
-
         <button class="ab ab-2nd" id="btn-cancel-login">Annuler</button>
-
       </div>
-
     </div>
 
-
-
     <div id="adm-content" style="display:none;flex-direction:column;flex:1;overflow:hidden">
-
       <div class="adm-hd">
-
         <div class="adm-title">⚙ Administration</div>
-
         <button class="adm-close" id="btn-close-admin" aria-label="Fermer">✕</button>
-
       </div>
-
       <div class="adm-tabs" role="tablist">
-
         <button class="adm-tab active" data-tab="t-github" role="tab" aria-selected="true">🔗 GitHub</button>
-
         <button class="adm-tab" data-tab="t-infos" role="tab" aria-selected="false">Infos</button>
-
         <button class="adm-tab" data-tab="t-services" role="tab" aria-selected="false">Services</button>
-
         <button class="adm-tab" data-tab="t-projects" role="tab" aria-selected="false">Projets</button>
-
         <button class="adm-tab" data-tab="t-skills" role="tab" aria-selected="false">Compétences</button>
-
         <button class="adm-tab" data-tab="t-parcours" role="tab" aria-selected="false">Parcours</button>
-
         <button class="adm-tab" data-tab="t-contact" role="tab" aria-selected="false">Contact</button>
-
       </div>
-
       <div class="adm-body">
 
-
-
         <!-- GITHUB -->
-
         <div class="adm-sec active" id="t-github" role="tabpanel">
-
           <div class="github-box">
-
             <div class="github-box-title">🔑 Connexion GitHub <span class="github-status none" id="gh-status-badge">Non configuré</span></div>
-
             <p style="font-size:13px;color:var(--gray);margin-bottom:16px;line-height:1.7">Sauvegardez vos données dans <strong style="color:var(--white)">data.json</strong> sur votre repo GitHub Pages.</p>
-
             <div style="display:flex;flex-direction:column;gap:12px">
-
               <div class="f-group"><div class="f-label">Username GitHub</div><input class="f-input" id="gh-user" placeholder="venance10" autocomplete="off"></div>
-
               <div class="f-group"><div class="f-label">Nom du repo</div><input class="f-input" id="gh-repo" placeholder="venanceportfolio" autocomplete="off"></div>
-
               <div class="f-group">
-
                 <div class="f-label">Personal Access Token (ghp_...)</div>
-
                 <input class="f-input" id="gh-token" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxx" autocomplete="off">
-
                 <div class="f-hint warn">⚠ Token stocké en sessionStorage (session uniquement, jamais en clair dans le code).</div>
-
               </div>
-
               <div style="display:flex;gap:10px;flex-wrap:wrap">
-
                 <button class="ab ab-gold" id="btn-gh-save">💾 Sauvegarder config</button>
-
                 <button class="ab ab-2nd" id="btn-gh-test">🔍 Tester connexion</button>
-
               </div>
-
             </div>
-
           </div>
-
           <div class="risk-box">
-
             <div class="risk-icon">⚠️</div>
-
             <div class="risk-text">
-
               <strong>Risque documenté.</strong> La vérification du mot de passe se fait côté client via SHA-256. Un attaquant avec accès au bundle JS peut tenter une attaque hors-ligne sur le hash.<br>
-
               <strong>Migration recommandée :</strong> Cloudflare Worker ou Vercel Edge Function qui détient le token GitHub côté serveur.
-
             </div>
-
           </div>
-
           <div style="background:var(--navy3);border:1px solid var(--border);border-radius:12px;padding:20px">
+            <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:12px">📋 Créer votre token GitHub</div>
+            <ol style="font-size:13px;color:var(--gray);line-height:2;padding-left:20px">
+              <li>Allez sur <strong style="color:var(--gold)">github.com/settings/tokens</strong></li>
+              <li>Cliquez <strong style="color:var(--white)">"Generate new token (classic)"</strong></li>
+              <li>Nom : <em style="color:var(--white)">portfolio-admin</em></li>
+              <li>Cochez uniquement ✅ <strong style="color:var(--white)">repo</strong></li>
+              <li>Générez et copiez le token</li>
+            </ol>
+          </div>
+        </div>
 
-            <div style="font-size:13px;font-weight:700;color:var(--white);mar
+        <!-- INFOS -->
+        <div class="adm-sec" id="t-infos" role="tabpanel">
+          <div class="save-progress" id="prog-infos"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Localisation</div><input class="f-input" id="f-loc"></div>
+            <div class="f-group"><div class="f-label">Disponibilité</div><input class="f-input" id="f-avail"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Spécialité</div><input class="f-input" id="f-spec"></div>
+            <div class="f-group"><div class="f-label">Langues</div><input class="f-input" id="f-langs"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Description principale (hero)</div><textarea class="f-ta" id="f-hero"></textarea></div>
+          <div class="f-group"><div class="f-label">Texte "À propos" (ligne vide = paragraphe)</div><textarea class="f-ta" id="f-about" style="min-height:120px"></textarea></div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Grande stat — Chiffre</div><input class="f-input" id="f-s1n"></div>
+            <div class="f-group"><div class="f-label">Grande stat — Description</div><input class="f-input" id="f-s1l"></div>
+          </div>
+          <button class="ab ab-gold" id="btn-save-infos">💾 Enregistrer &amp; publier</button>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="adm-sec" id="t-services" role="tabpanel">
+          <div class="save-progress" id="prog-services"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="svc-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau service</div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Icône</div><input class="f-input" id="s-ico" placeholder="🔍" maxlength="4"></div>
+            <div class="f-group"><div class="f-label">Nom (FR)</div><input class="f-input" id="s-nom"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Description (FR)</div><textarea class="f-ta" id="s-desc"></textarea></div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Name (EN)</div><input class="f-input" id="s-nome"></div>
+            <div class="f-group"><div class="f-label">Description (EN)</div><input class="f-input" id="s-desce"></div>
+          </div>
+          <button class="ab ab-gold" id="btn-add-svc">➕ Ajouter &amp; publier</button>
+        </div>
+
+        <!-- PROJETS -->
+        <div class="adm-sec" id="t-projects" role="tabpanel">
+          <div class="save-progress" id="prog-projects"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="prj-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau projet</div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Titre (FR)</div><input class="f-input" id="p-tit"></div>
+            <div class="f-group"><div class="f-label">Title (EN)</div><input class="f-input" id="p-tite"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Organisation</div><input class="f-input" id="p-org"></div>
+            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="p-date" placeholder="2026"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Badge</div><input class="f-input" id="p-badge" placeholder="Pentest Web, GRC…"></div>
+            <div class="f-group">
+              <div class="f-label">Style badge</div>
+              <select class="f-sel" id="p-badge-style">
+                <option value="">Standard (doré)</option>
+                <option value="pentest">Pentest (rouge)</option>
+                <option value="hack">Hackathon (bleu)</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-group"><div class="f-label">Points (FR) — une ligne = un point</div><textarea class="f-ta" id="p-bul"></textarea></div>
+          <div class="f-group"><div class="f-label">Points (EN)</div><textarea class="f-ta" id="p-bule"></textarea></div>
+          <div class="f-group"><div class="f-label">Tags (séparés par virgules)</div><input class="f-input" id="p-tags" placeholder="ISO 27001, OWASP, RGPD"></div>
+          <button class="ab ab-gold" id="btn-add-prj">➕ Ajouter &amp; publier</button>
+        </div>
+
+        <!-- COMPÉTENCES -->
+        <div class="adm-sec" id="t-skills" role="tabpanel">
+          <div class="save-progress" id="prog-skills"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="sk-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvelle compétence</div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Nom</div><input class="f-input" id="sk-n" placeholder="Pentest Web"></div>
+            <div class="f-group"><div class="f-label">Catégorie</div><input class="f-input" id="sk-c" placeholder="Sécurité Offensive"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Niveau (0–100)</div><input class="f-input" id="sk-l" type="number" min="0" max="100" placeholder="78"></div>
+          <button class="ab ab-gold" id="btn-add-sk">➕ Ajouter compétence</button>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouvel outil</div>
+          <div class="f-group"><input class="f-input" id="tk-n" placeholder="Burp Suite, SQLMap…"><div class="f-hint">Un outil à la fois</div></div>
+          <button class="ab ab-gold" id="btn-add-tool">➕ Ajouter outil &amp; publier</button>
+        </div>
+
+        <!-- PARCOURS -->
+        <div class="adm-sec" id="t-parcours" role="tabpanel">
+          <div class="save-progress" id="prog-parcours"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">📚 Formations</div>
+          <div class="item-list" id="edu-list-adm"></div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Intitulé</div><input class="f-input" id="e-n"></div>
+            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="e-d" placeholder="2023 – présent"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Établissement</div><input class="f-input" id="e-o"></div>
+          <button class="ab ab-gold" id="btn-add-edu">➕ Ajouter formation</button>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">🏅 Certifications</div>
+          <div class="item-list" id="cert-list-adm"></div>
+          <div class="f-row">
+            <div class="f-group"><div class="f-label">Nom</div><input class="f-input" id="c-n"></div>
+            <div class="f-group"><div class="f-label">Date</div><input class="f-input" id="c-d" placeholder="2025"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Organisme</div><input class="f-input" id="c-o"></div>
+          <button class="ab ab-gold" id="btn-add-cert">➕ Ajouter cert. &amp; publier</button>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="adm-sec" id="t-contact" role="tabpanel">
+          <div class="save-progress" id="prog-contact"><div class="ld-spinner"></div><span>Sauvegarde…</span></div>
+          <div class="item-list" id="ct-list-adm"></div>
+          <div class="adm-div"></div>
+          <div style="font-size:14px;font-weight:700;color:var(--white)">➕ Nouveau contact</div>
+          <div class="f-row">
+            <div class="f-group">
+              <div class="f-label">Type</div>
+              <select class="f-sel" id="ct-type">
+                <option value="email">Email</option>
+                <option value="phone">Téléphone</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="github">GitHub</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="f-group"><div class="f-label">Libellé affiché</div><input class="f-input" id="ct-lbl" placeholder="vhoundete@gmail.com"></div>
+          </div>
+          <div class="f-group"><div class="f-label">Lien cliquable</div><input class="f-input" id="ct-lnk" placeholder="mailto:… ou https://…"></div>
+          <button class="ab ab-gold" id="btn-add-ct">➕ Ajouter &amp; publier</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   SECURITE — MOT DE PASSE ADMIN (Hash SHA-256)
+
+   ⚠ RISQUE DOCUMENTE : Comparaison côté client uniquement.
+     Un attaquant avec accès au bundle JS peut tenter une attaque
+     hors-ligne sur le hash. Ce mécanisme bloque les curieux, pas
+     un attaquant ciblé avec des ressources.
+
+   MIGRATION RECOMMANDEE pour déploiement public :
+   → Cloudflare Worker / Vercel Edge Function qui détient le token
+     GitHub côté serveur et expose /api/save protégé par password.
+     Zéro token ni hash exposé côté client.
+
+   CHANGER LE MOT DE PASSE :
+   1. Ouvrez la console du navigateur sur votre site.
+   2. Exécutez : generatePassHash('votre_nouveau_mdp')
+   3. Copiez le hash affiché et remplacez PASS_HASH ci-dessous.
+   OU via PowerShell :
+     $b=[System.Text.Encoding]::UTF8.GetBytes("votre_mdp")
+     [BitConverter]::ToString([System.Security.Cryptography.SHA256]::Create().ComputeHash($b)).Replace("-","").ToLower()
+═══════════════════════════════════════════════════════════════════ */
+const PASS_HASH = '3d2d940665a34415e08f6814661e6898a6f8fd7035d9a8093f8f747b18513fc2';
+
+async function generatePassHash(pw) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+  const hash = [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2,'0')).join('');
+  console.log('%c[Admin] Hash SHA-256 : ' + hash, 'color:#C9A84C;font-weight:bold');
+  return hash;
+}
+async function verifyPass(input) {
+  return (await generatePassHash(input)) === PASS_HASH;
+}
+
+/* ═══ DONNÉES PAR DÉFAUT ═══ */
+const DEF = {
+  infos: {
+    loc:   "Abomey-Calavi, Bénin · Travail à distance possible",
+    avail: "Freelance · Stage académique · Missions GRC & Pentest",
+    spec:  "Gouvernance SI · Audit & Pentest Web · Conformité ISO 27001",
+    langs: "Français (courant) · Anglais (intermédiaire B1)",
+    hero:  "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité — avec des livrables concrets et professionnels.",
+    about: "Je suis Venance Arnolde Yéminvènon Houndété, étudiant en Licence 3 Sécurité Informatique à l'IFRI (Université d'Abomey-Calavi, Bénin), aspirant RSSI.\n\nJ'ai une expérience pratique en audit GRC et en tests d'intrusion web black-box réels. J'ai conduit des audits pour l'Université d'Abomey-Calavi (PSSI-UAC v2.0, 60 000 utilisateurs) et pour GRAFNET Consulting — où j'ai identifié des vulnérabilités critiques sur des plateformes e-commerce en production.\n\nDisponible pour des missions freelance ou un stage académique en cybersécurité offensive et défensive, gestion des risques et conformité.",
+    s1n: "18+",
+    s1l: "Vulnérabilités identifiées lors d'audits web réels"
+  },
+  services: [
+    {ico:"⚔️",nom:"Pentest Web (Black-box)",desc:"Test d'intrusion boîte noire sur vos applications web : reconnaissance, énumération, tests OWASP Top 10 & API Security Top 10, rapport détaillé avec plan de remédiation priorisé.",nome:"Web Penetration Testing (Black-box)",desce:"Black-box intrusion testing: reconnaissance, enumeration, OWASP Top 10 & API Security Top 10, detailed report with prioritized remediation plan."},
+    {ico:"🔍",nom:"Audit de Sécurité & GRC",desc:"Analyse des écarts sur vos procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin. Rapport d'écarts et recommandations correctives.",nome:"Security Audit & GRC",desce:"Gap analysis on your security procedures: ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Benin. Gaps report and corrective recommendations."},
+    {ico:"📋",nom:"Politique de Sécurité (PSSI)",desc:"Rédaction du document officiel de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements. Conforme RGPD / Code du Numérique du Bénin.",nome:"Security Policy (ISSP)",desce:"Drafting your IS governance document: security rules, RACI matrix, KPIs, processing register. GDPR / Benin Digital Code compliant."},
+    {ico:"📊",nom:"Conformité ISO 27001 & RGPD",desc:"Comparaison de votre situation aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin, feuille de route de mise en conformité.",nome:"ISO 27001 & GDPR Compliance",desce:"Comparison against ISO 27001:2022, GDPR / Benin Digital Code analysis, and compliance roadmap."},
+    {ico:"🗺️",nom:"Cartographie & Analyse de risques",desc:"Cartographie complète de votre infrastructure : actifs, données sensibles, points vulnérables. Analyse de risques et matrice de criticité.",nome:"Risk Mapping & Analysis",desce:"Complete infrastructure mapping: assets, sensitive data, vulnerable points. Risk analysis and criticality matrix."},
+    {ico:"🎓",nom:"Formation de vos équipes",desc:"Sessions pratiques pour que vos collaborateurs comprennent les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.",nome:"Team Training",desce:"Practical sessions so your staff understand cyber risks, best practices and incident response procedures."}
+  ],
+  projects: [
+    {tit:"Audit GRC Documentaire — 27 Procédures SI",tite:"GRC Documentary Audit — 27 IS Procedures",org:"GRAFNET Consulting",date:"Depuis juin 2026",badge:"GRC · Stage",badgeStyle:"",bul:["Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019","Identification des écarts, lacunes documentaires et risques de non-conformité ; recommandations correctives","Vérification des rôles (matrice RACI), contrôles internes, KPI et mécanismes de traçabilité","Production de registres d'écarts et rapports de conformité pour certification ISO 27001 / ISO 20000","Intervention de récupération d'urgence : VPS Ubuntu 24.04 (Odoo 18, Nginx, PostgreSQL, MariaDB, Docker)"],bule:["Compliance analysis of 27 procedures covering ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 and COBIT 2019","Gaps, documentary shortcomings and non-compliance risks identified; corrective recommendations","RACI matrix, internal controls, KPIs and traceability verification","Gap registers and compliance reports for ISO 27001 / ISO 20000 certification","Emergency recovery: Ubuntu 24.04 VPS (Odoo 18, Nginx, PostgreSQL, MariaDB, Docker)"],tags:["ISO 27001:2022","ISO 20000-1","ITIL 4","COBIT 2019","PSSIE","RACI"]},
+    {tit:"Pentest Web Black-box — asofind.com",tite:"Black-box Web Pentest — asofind.com",org:"GRAFNET Consulting — Mission cliente",date:"23 juin 2026",badge:"Pentest Web",badgeStyle:"pentest",bul:["Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB","⚠ CRITIQUE : Exposition de données personnelles (email, téléphone) de 9 comptes via API publique non protégée — violation RGPD / Code du Numérique","5 failles supplémentaires : absence de CSP, fuite Sentry DSN & hash Git, absence de rate limiting","Total : 6 vulnérabilités dont 1 critique — rapport de remédiation priorisé livré"],bule:["Black-box intrusion test: Next.js / Node.js / MongoDB e-commerce platform","⚠ CRITICAL: Personal data exposure (email, phone) of 9 accounts via unprotected public API — GDPR violation","5 additional vulnerabilities: missing CSP, Sentry DSN & Git hash leakage, no rate limiting","Total: 6 vulnerabilities including 1 critical — prioritized remediation report delivered"],tags:["OWASP Top 10","API Security","RGPD","nmap","nikto","sqlmap","whatweb","curl"]},
+    {tit:"Pentest Web Black-box — giftyzi.com",tite:"Black-box Web Pentest — giftyzi.com",org:"GRAFNET Consulting — Mission cliente",date:"17–20 juin 2026",badge:"Pentest Web",badgeStyle:"pentest",bul:["Audit de sécurité : infrastructure Django / Next.js / PostgreSQL / Redis","⚠ CRITIQUE : Mode DEBUG actif en production — exposition de l'infrastructure interne et 3 sous-domaines Grafnet","⚠ CRITIQUE : Collecte massive de données personnelles sans politique de confidentialité — non-conformité RGPD","⚠ CRITIQUE : Sous-domaines exposés et misconfiguration TLS","Total : 12 vulnérabilités dont 3 critiques — recommandations headers & durcissement TLS"],bule:["Security audit: Django / Next.js / PostgreSQL / Redis infrastructure","⚠ CRITICAL: DEBUG mode active in production — internal infrastructure and 3 Grafnet subdomains exposed","⚠ CRITICAL: Mass personal data collection without privacy policy — GDPR non-compliance","⚠ CRITICAL: Exposed subdomains and TLS misconfiguration","Total: 12 vulnerabilities including 3 critical — security headers and TLS hardening recommendations"],tags:["OWASP Top 10","DEBUG","RGPD","Nmap","OWASP ZAP","curl","DevTools"]},
+    {tit:"Audit SI — Université d'Abomey-Calavi",tite:"IS Security Audit — UAC",org:"SPTIC — Université d'Abomey-Calavi",date:"2025–2026",badge:"Audit Réel",badgeStyle:"",bul:["Audit complet : 33 points de contrôle (PSSIE, ISO 27001:2022, Code du Numérique)","27 questions de diagnostic (7 domaines) via Google Forms / Apps Script","12 points critiques dont non-conformité Code du Numérique (données de santé et financières)","Analyse et documentation d'un incident réel (ransomware) : rapport et recommandations"],bule:["Full IS audit: 33 control points (PSSIE, ISO 27001:2022, Digital Code)","27 diagnostic questions (7 domains) via Google Forms / Apps Script","12 critical points including Digital Code non-compliance (health and financial data)","Real incident analysis (ransomware): report and recommendations"],tags:["ISO 27001","PSSIE","Code du Numérique","Audit","Gap Analysis"]},
+    {tit:"PSSI-UAC v2.0 — Première politique de sécurité officielle",tite:"ISSP-UAC v2.0 — First Official Security Policy",org:"SPTIC — Université d'Abomey-Calavi",date:"2025–2026",badge:"Historique",badgeStyle:"",bul:["Premier document de gouvernance SI de l'UAC — une première au Bénin","13 sections, 50+ règles de sécurité codées, validé par le Chef du SPTIC","Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs","Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique"],bule:["First official IS governance document of UAC — a first in Benin","13 sections, 50+ coded security rules, validated by the SPTIC Head","4-phase roadmap over 18–24 months for a 60,000-user IS","Compliant with PSSIE Benin, ISO 27001:2022 and Digital Code"],tags:["PSSI","ISO 27001","Gouvernance","PSSIE Bénin","60 000 utilisateurs"]},
+    {tit:"Plateforme IA Sécurisée — Hackathon AI4BMI",tite:"Secure AI Platform — AI4BMI Hackathon",org:"IFRI / UAC",date:"Fév. 2026",badge:"Hackathon",badgeStyle:"hack",bul:["Plateforme IA sécurisée : chiffrement AES-256-GCM, MFA, anti-brute force, JWT","Documentation technique complète et rapport de sécurité remis au jury","Conforme aux recommandations NIST sur les mots de passe"],bule:["Secure AI platform: AES-256-GCM encryption, MFA, anti-brute force, JWT","Full technical documentation and security report submitted to jury","NIST password compliance"],tags:["Python","Flask","AES-256-GCM","MFA","JWT","NIST"]},
+    {tit:"Hackathon NetBlue — Lutte contre la cybercriminalité",tite:"NetBlue Hackathon — Fighting Cybercrime",org:"IFRI / UAC",date:"2023–2024",badge:"Hackathon",badgeStyle:"hack",bul:["Collecte de preuves numériques et analyse de sources ouvertes (OSINT)","Surveillance d'attaques ciblant des systèmes industriels","Plateformes SIEM professionnelles (ArcSight, QRadar)"],bule:["Digital evidence collection and open-source analysis (OSINT)","Monitoring attacks targeting industrial systems","Professional SIEM platforms (ArcSight, QRadar)"],tags:["OSINT","SIEM","ArcSight","QRadar","Cybercriminalité"]}
+  ],
+  skills: [
+    {n:"Pentest Web Black-box",       c:"Sécurité Offensive", l:78},
+    {n:"OWASP Top 10 / API Security", c:"Sécurité Offensive", l:82},
+    {n:"Reconnaissance & Énumération",c:"Sécurité Offensive", l:75},
+    {n:"Burp Suite",                   c:"Sécurité Offensive", l:72},
+    {n:"OWASP ZAP / Nikto",           c:"Sécurité Offensive", l:75},
+    {n:"SQLMap / WhatWeb / Nmap",     c:"Sécurité Offensive", l:78},
+    {n:"ISO 27001:2022",              c:"Gouvernance & Conformité", l:85},
+    {n:"ISO 20000-1 / ISO 27035",     c:"Gouvernance & Conformité", l:80},
+    {n:"ITIL 4 / COBIT 2019",         c:"Gouvernance & Conformité", l:78},
+    {n:"PSSIE Bénin / Code Numérique",c:"Gouvernance & Conformité", l:88},
+    {n:"Rédaction PSSI & RACI",       c:"Gouvernance & Conformité", l:85},
+    {n:"Gap Analysis / Audit",        c:"Gouvernance & Conformité", l:82},
+    {n:"Analyse réseau (Wireshark)",  c:"Cybersécurité Défensive", l:80},
+    {n:"Chiffrement AES-256-GCM/JWT", c:"Cybersécurité Défensive", l:78},
+    {n:"Kali Linux",                  c:"Cybersécurité Défensive", l:78},
+    {n:"Analyse incidents / SIEM",    c:"Cybersécurité Défensive", l:65},
+    {n:"Python / Flask",              c:"Développement", l:75},
+    {n:"HTML/CSS/JavaScript",         c:"Développement", l:72},
+    {n:"Git / GitHub",                c:"Développement", l:72},
+    {n:"Bash / Linux",                c:"Développement", l:62}
+  ],
+  tools:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng","Wireshark","ArcSight","QRadar","Netdata","Python","Flask","Git","JWT","AES-256","bcrypt","curl","OSINT Framework"],
+  toolsOffensive:["Burp Suite","OWASP ZAP","Nmap","Nikto","SQLMap","WhatWeb","Kali Linux","Aircrack-ng"],
+  edu:[
+    {n:"Licence 3 – Sécurité Informatique (en cours)",o:"IFRI – Université d'Abomey-Calavi, Bénin",d:"2023 – présent"},
+    {n:"Baccalauréat Série D – Mention Bien",o:"Bénin",d:"2023"}
+  ],
+  certs:[
+    {n:"Introduction to Cyber Security",o:"Cisco Networking Academy",d:"2025"},
+    {n:"Internship GRC / Audit SSI",o:"GRAFNET Consulting",d:"2026"}
+  ],
+  contacts:[
+    {type:"email",   lbl:"vhoundete@gmail.com",            lnk:"mailto:vhoundete@gmail.com"},
+    {type:"whatsapp",lbl:"+229 01 69 95 94 07",            lnk:"https://wa.me/22901699559407"},
+    {type:"linkedin",lbl:"linkedin.com/in/venancehoundete",lnk:"https://linkedin.com/in/venancehoundete"},
+    {type:"github",  lbl:"github.com/venance10",            lnk:"https://github.com/venance10"}
+  ],
+  /* ═══ Veille / Articles : remplir pour activer la section
+    Structure : { titre, titreEn, date, lien, tags:[] }
+  ═══ */
+  articles: []
+};
+
+/* ═══ ÉTAT ═══ */
+let D = JSON.parse(JSON.stringify(DEF));
+let lang = 'fr';
+let logged = false;
+
+/* ═══ GITHUB CONFIG ═══ */
+function getGHConfig(){ return {user:sessionStorage.getItem('gh_user')||'',repo:sessionStorage.getItem('gh_repo')||'',token:sessionStorage.getItem('gh_token')||''}; }
+function setGHConfig(u,r,t){ sessionStorage.setItem('gh_user',u); sessionStorage.setItem('gh_repo',r); sessionStorage.setItem('gh_token',t); }
+
+/* ═══ ICÔNES SVG ═══ */
+const ICONS = {
+  email:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+  phone:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+  linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+  github:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>',
+  whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>',
+  autre:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+};
+
+/* ═══ TYPAGE ANIMÉ ═══ */
+const phFR = ['Expert en Cybersécurité','Gouvernance SI & Conformité','Pentest Web Black-box','Aspirant RSSI'];
+const phEN = ['Cybersecurity Expert','IS Governance & Compliance','Black-box Web Pentester','Aspiring CISO'];
+let phArr=phFR, pi=0, ci=0, isDel=false;
+const tEl = document.getElementById('typing-el');
+function type(){
+  const p=phArr[pi];
+  if(!isDel){tEl.textContent=p.slice(0,++ci);if(ci===p.length){isDel=true;setTimeout(type,2200);return;}}
+  else{tEl.textContent=p.slice(0,--ci);if(ci===0){isDel=false;pi=(pi+1)%phArr.length;}}
+  setTimeout(type,isDel?45:95);
+}
+type();
+
+/* ═══ LANGUE ═══ */
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    const a=b.textContent.includes(l.toUpperCase());
+    b.classList.toggle('active',a);
+    b.setAttribute('aria-pressed',a?'true':'false');
+  });
+  phArr=l==='en'?phEN:phFR; pi=0;ci=0;isDel=false;
+  const t=l==='en';
+  setTxt('hero-eyebrow',  t?'Available for missions':'Disponible pour des missions');
+  setTxt('btn-hero-work', t?'See my work':'Voir mon travail');
+  setTxt('btn-hero-cv',   t?'⬇ Download my CV':'⬇ Télécharger mon CV');
+  setTxt('btn-hero-contact',t?'Contact me':'Me contacter');
+  setTxt('stat2-lbl',     t?'Control points checked (UAC IS audit)':'Points de contrôle vérifiés (audit SI de l\'UAC)');
+  setTxt('stat3-lbl',     t?'Security rules written (PSSI-UAC v2.0)':'Règles de sécurité rédigées (PSSI-UAC v2.0)');
+  setTxt('stat4-lbl',     t?'Standards mastered (ISO 27001, 20000-1, ITIL 4, COBIT 2019, PSSIE)':'Normes maîtrisées (ISO 27001, 20000-1, ITIL 4, COBIT 2019, PSSIE)');
+  setTxt('about-tag',     t?'ABOUT':'À PROPOS');
+  setTxt('services-tag',  t?'SERVICES':'SERVICES');
+  setTxt('services-sub',  t?'Clear missions with concrete results. Here\'s how I help organizations protect themselves better.':'Des missions claires avec des résultats concrets. Voici comment j\'aide les organisations à mieux se protéger.');
+  setTxt('projects-tag',  t?'PROJECTS & EXPERIENCES':'PROJETS & EXPÉRIENCES');
+  setTxt('projects-sub',  t?'Real projects for real organizations. Not theoretical exercises.':'Des projets réels, pour de vraies organisations. Pas des exercices théoriques.');
+  setTxt('skills-tag',    t?'SKILLS':'COMPÉTENCES');
+  setTxt('tools-title',   t?'TOOLS & SOFTWARE':'OUTILS & LOGICIELS');
+  setTxt('parcours-tag',  t?'BACKGROUND':'PARCOURS');
+  setTxt('pc-edu',        t?'EDUCATION':'FORMATION');
+  setTxt('pc-cert',       t?'CERTIFICATIONS':'CERTIFICATIONS');
+  setTxt('articles-tag',  t?'CYBERSECURITY WATCH':'VEILLE CYBERSÉCURITÉ');
+  setTxt('articles-sub',  t?'Experience reports, vulnerability analyses and security watch.':'Retours d\'expérience, analyses de vulnérabilités et veille sécurité.');
+  setTxt('contact-tag',   t?'CONTACT':'CONTACT');
+  setTxt('contact-desc',  t?'Need a security audit, penetration test or GRC/compliance support? Write to me directly.':'Besoin d\'un audit de sécurité, d\'un test d\'intrusion ou d\'un accompagnement GRC/conformité ? Écrivez-moi directement.');
+  render();
+}
+function setTxt(id,txt){const el=document.getElementById(id);if(el)el.textContent=txt;}
+
+/* ═══ RENDER ═══ */
+function render(){
+  document.getElementById('hero-desc').textContent=D.infos.hero;
+  document.getElementById('stat1-num').textContent=D.infos.s1n;
+  document.getElementById('stat1-lbl').textContent=D.infos.s1l;
+  const fm=D.contacts.find(c=>c.type==='email');
+  document.getElementById('footer-mail').textContent=fm?fm.lbl:'';
+
+  document.getElementById('about-body').innerHTML=D.infos.about.split('\n\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('');
+  document.getElementById('info-list').innerHTML=`
+    <div class="info-item"><div class="info-label">${lang==='en'?'Location':'Localisation'}</div><div class="info-val">${D.infos.loc}</div></div>
+    <div class="info-item"><div class="info-label">${lang==='en'?'Specialty':'Spécialité'}</div><div class="info-val">${D.infos.spec}</div></div>
+    <div class="info-item"><div class="info-label">${lang==='en'?'Languages':'Langues'}</div><div class="info-val">${D.infos.langs}</div></div>
+    <div class="info-item"><div class="info-label">${lang==='en'?'Availability':'Disponibilité'}</div><div class="info-val">${D.infos.avail}</div></div>`;
+
+  document.getElementById('services-grid').innerHTML=D.services.map(s=>`
+    <div class="service-card" role="listitem">
+      <div class="svc-icon" aria-hidden="true">${s.ico}</div><div class="svc-line"></div>
+      <div class="svc-name">${lang==='en'?s.nome:s.nom}</div>
+      <div class="svc-text">${lang==='en'?s.desce:s.desc}</div>
+    </div>`).join('');
+
+  document.getElementById('projects-grid').innerHTML=D.projects.map(p=>{
+    const bc=p.badgeStyle==='pentest'?'p-badge p-badge-pentest':p.badgeStyle==='hack'?'p-badge p-badge-hack':'p-badge';
+    const bullets=(lang==='en'?p.bule:p.bul).map(b=>{
+      const isCrit=b.includes('⚠')||b.toLowerCase().includes('critical')||b.toLowerCase().includes('critique');
+      return `<li${isCrit?' class="critical"':''}>${b}</li>`;
+    }).join('');
+    const tags=p.tags.map(t=>{
+      const isRed=['owasp','rgpd','gdpr','debug','sqlmap','nikto','whatweb','injection'].some(k=>t.toLowerCase().includes(k));
+      return `<span class="chip${isRed?' chip-red':''}">${t}</span>`;
+    }).join('');
+    return `<div class="project-card" role="listitem">
+      <span class="${bc}">${p.badge}</span>
+      <div class="p-date">${p.date} · ${p.org}</div>
+      <div class="p-name">${lang==='en'?p.tite:p.tit}</div>
+      <div class="p-org">${p.org}</div>
+      <ul class="p-list">${bullets}</ul>
+      <div class="p-chips">${tags}</div>
+    </div>`;
+  }).join('');
+
+  const offCat='Sécurité Offensive';
+  const cats=[...new Set(D.skills.map(s=>s.c))];
+  document.getElementById('skills-layout').innerHTML=cats.map(cat=>`
+    <div class="skill-group">
+      <div class="sk-group-name">${cat}</div>
+      ${D.skills.filter(s=>s.c===cat).map(s=>`
+        <div class="sk-row">
+          <div class="sk-top"><span class="sk-name">${s.n}</span><span class="sk-pct">${s.l}%</span></div>
+          <div class="sk-track" role="progressbar" aria-valuenow="${s.l}" aria-valuemin="0" aria-valuemax="100" aria-label="${s.n}">
+            <div class="sk-fill${cat===offCat?' sk-fill-red':''}" data-w="${s.l}"></div>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  const offSet=new Set(D.toolsOffensive||[]);
+  document.getElementById('tools-chips').innerHTML=(D.tools||[]).map(t=>
+    `<div class="tool${offSet.has(t)?' tool-red':''}">${t}</div>`).join('');
+
+  document.getElementById('edu-timeline').innerHTML=D.edu.map(e=>`
+    <div class="tl-item"><div class="tl-date">${e.d}</div><div class="tl-name">${e.n}</div><div class="tl-sub">${e.o}</div></div>`).join('');
+  document.getElementById('cert-timeline').innerHTML=D.certs.map(c=>`
+    <div class="tl-item"><div class="tl-date">${c.d}</div><div class="tl-name">${c.n}</div><div class="tl-sub">${c.o}</div></div>`).join('');
+
+  const arts=D.articles||[];
+  const artSec=document.getElementById('articles');
+  if(arts.length>0){
+    artSec.classList.add('has-content');
+    document.getElementById('articles-grid').innerHTML=arts.map(a=>`
+      <a class="article-card fu" href="${a.lien||'#'}" target="_blank" rel="noopener">
+        <div class="art-date">${a.date||''}</div>
+        <div class="art-title">${lang==='en'?(a.titreEn||a.titre):a.titre}</div>
+        <div class="art-chips">${(a.tags||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+      </a>`).join('');
+  } else { artSec.classList.remove('has-content'); }
+
+  document.getElementById('contact-grid').innerHTML=D.contacts.map(c=>`
+    <a href="${c.lnk}" class="contact-card" target="_blank" rel="noopener">
+      ${ICONS[c.type]||ICONS.autre}${c.lbl}
+    </a>`).join('');
+
+  observeAll();
+}
+
+/* ═══ SCROLL ANIMATIONS ═══ */
+function observeAll(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>{
+          e.target.classList.add('vis');
+          e.target.querySelectorAll('.sk-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
+        },i*80);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fu:not(.vis)').forEach(el=>obs.observe(el));
+}
+
+/* ═══ LOADING ═══ */
+function showLoading(){document.getElementById('loading-overlay').classList.remove('hide');}
+function hideLoading(){
+  const ov=document.getElementById('loading-overlay');
+  ov.classList.add('hide');
+  setTimeout(()=>{ov.style.display='none';},520);
+}
+
+/* ═══ TOAST ═══ */
+function toast(msg,err=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className=err?'show err':'show';
+  setTimeout(()=>{t.className='';},2800);
+}
+
+/* ═══ GITHUB SAVE ═══ */
+async function githubSave(newData){
+  const cfg=getGHConfig();
+  if(!cfg.user||!cfg.repo||!cfg.token){toast('❌ Configurez GitHub d\'abord',true);return false;}
+  const url=`https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/data.json`;
+  const headers={Authorization:`token ${cfg.token}`,'Content-Type':'application/json'};
+  let sha=null;
+  try{const r=await fetch(url,{headers});if(r.ok){const j=await r.json();sha=j.sha;}}catch(e){}
+  const body={message:`Portfolio update — ${new Date().toISOString()}`,content:btoa(unescape(encodeURIComponent(JSON.stringify(newData,null,2))))};
+  if(sha)body.sha=sha;
+  const res=await fetch(url,{method:'PUT',headers,body:JSON.stringify(body)});
+  return res.ok;
+}
+
+async function saveSection(progId,_,obj){
+  const prog=document.getElementById(progId);
+  if(prog)prog.classList.add('show');
+  D={...D,...obj};
+  const ok=await githubSave(D);
+  if(prog)prog.classList.remove('show');
+  toast(ok?'✅ Sauvegardé sur GitHub !':'⚠️ Erreur GitHub — données mises à jour localement',!ok);
+  render();
+  return ok;
+}
+
+/* ═══ ADMIN LISTS ═══ */
+function renderAdmLists(){
+  document.getElementById('svc-list-adm').innerHTML=D.services.map((s,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${s.ico} ${s.nom}</div></div><button class="ib del" onclick="delSvc(${i})">Supprimer</button></div>`).join('');
+  document.getElementById('prj-list-adm').innerHTML=D.projects.map((p,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${lang==='en'?p.tite:p.tit}</div><div class="item-e-sub">${p.org} · ${p.date}</div></div><button class="ib del" onclick="delPrj(${i})">Supprimer</button></div>`).join('');
+  document.getElementById('sk-list-adm').innerHTML=D.skills.map((s,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${s.n}</div><div class="item-e-sub">${s.c} · ${s.l}%</div></div><button class="ib del" onclick="delSk(${i})">Supprimer</button></div>`).join('');
+  document.getElementById('edu-list-adm').innerHTML=D.edu.map((e,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${e.n}</div><div class="item-e-sub">${e.o}</div></div><button class="ib del" onclick="delEdu(${i})">Supprimer</button></div>`).join('');
+  document.getElementById('cert-list-adm').innerHTML=D.certs.map((c,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${c.n}</div><div class="item-e-sub">${c.o}</div></div><button class="ib del" onclick="delCert(${i})">Supprimer</button></div>`).join('');
+  document.getElementById('ct-list-adm').innerHTML=D.contacts.map((c,i)=>`
+    <div class="item-e"><div><div class="item-e-name">${c.lbl}</div><div class="item-e-sub">${c.type}</div></div><button class="ib del" onclick="delCt(${i})">Supprimer</button></div>`).join('');
+}
+
+function delSvc(i){D.services.splice(i,1);saveSection('prog-services','',{services:D.services});renderAdmLists();}
+function delPrj(i){D.projects.splice(i,1);saveSection('prog-projects','',{projects:D.projects});renderAdmLists();}
+function delSk(i) {D.skills.splice(i,1);  saveSection('prog-skills','',  {skills:D.skills});   renderAdmLists();}
+function delEdu(i){D.edu.splice(i,1);     saveSection('prog-parcours','',{edu:D.edu});         renderAdmLists();}
+function delCert(i){D.certs.splice(i,1);  saveSection('prog-parcours','',{certs:D.certs});     renderAdmLists();}
+function delCt(i){D.contacts.splice(i,1); saveSection('prog-contact','', {contacts:D.contacts});renderAdmLists();}
+
+function g(id){return(document.getElementById(id)||{}).value||'';}
+
+/* ═══ ADMIN EVENTS ═══ */
+function initAdminEvents(){
+  /* Tabs */
+  document.querySelectorAll('.adm-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.adm-tab').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+      document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('active'));
+      btn.classList.add('active');btn.setAttribute('aria-selected','true');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* Login */
+  const doLogin=async()=>{
+    const ok=await verifyPass(document.getElementById('adm-pw').value);
+    if(ok){
+      logged=true;
+      document.getElementById('adm-login').style.display='none';
+      const c=document.getElementById('adm-content');c.style.display='flex';
+      renderAdmLists();
+      const cfg=getGHConfig();
+      document.getElementById('gh-user').value=cfg.user;
+      document.getElementById('gh-repo').value=cfg.repo;
+      document.getElementById('gh-token').value=cfg.token;
+      updateGHStatus();
+      document.getElementById('f-loc').value=D.infos.loc;
+      document.getElementById('f-avail').value=D.infos.avail;
+      document.getElementById('f-spec').value=D.infos.spec;
+      document.getElementById('f-langs').value=D.infos.langs;
+      document.getElementById('f-hero').value=D.infos.hero;
+      document.getElementById('f-about').value=D.infos.about;
+      document.getElementById('f-s1n').value=D.infos.s1n;
+      document.getElementById('f-s1l').value=D.infos.s1l;
+    } else {
+      const err=document.getElementById('lg-err');err.style.display='block';
+      setTimeout(()=>{err.style.display='none';},3000);
+    }
+  };
+  document.getElementById('btn-login').addEventListener('click',doLogin);
+  document.getElementById('adm-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
+  /* Close */
+  document.getElementById('btn-cancel-login').addEventListener('click',closeAdmin);
+  document.getElementById('btn-close-admin').addEventListener('click',closeAdmin);
+  document.getElementById('admin-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('admin-overlay'))closeAdmin();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('admin-overlay').classList.contains('open'))closeAdmin();});
+  document.getElementById('admin-trigger').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openAdmin();});
+
+  /* GitHub */
+  document.getElementById('btn-gh-save').addEventListener('click',()=>{
+    setGHConfig(g('gh-user'),g('gh-repo'),g('gh-token'));updateGHStatus();toast('✅ Config GitHub sauvegardée');
+  });
+  document.getElementById('btn-gh-test').addEventListener('click',async()=>{
+    const cfg=getGHConfig();if(!cfg.token){toast('❌ Token manquant',true);return;}
+    const r=await fetch('https://api.github.com/user',{headers:{Authorization:`token ${cfg.token}`}});
+    const badge=document.getElementById('gh-status-badge');
+    if(r.ok){const u=await r.json();toast(`✅ Connecté : ${u.login}`);badge.className='github-status ok';badge.textContent=`✓ ${u.login}`;}
+    else{toast('❌ Token invalide',true);badge.className='github-status nok';badge.textContent='✗ Erreur';}
+  });
+
+  /* Infos */
+  document.getElementById('btn-save-infos').addEventListener('click',()=>{
+    saveSection('prog-infos','',{infos:{...D.infos,loc:g('f-loc'),avail:g('f-avail'),spec:g('f-spec'),langs:g('f-langs'),hero:g('f-hero'),about:g('f-about'),s1n:g('f-s1n'),s1l:g('f-s1l')}});
+  });
+
+  /* Service */
+  document.getElementById('btn-add-svc').addEventListener('click',()=>{
+    const s={ico:g('s-ico')||'🔧',nom:g('s-nom'),desc:g('s-desc'),nome:g('s-nome'),desce:g('s-desce')};
+    if(!s.nom){toast('❌ Nom requis',true);return;}
+    D.services.push(s);saveSection('prog-services','',{services:D.services});renderAdmLists();
+    ['s-ico','s-nom','s-desc','s-nome','s-desce'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
+  /* Project */
+  document.getElementById('btn-add-prj').addEventListener('click',()=>{
+    const p={tit:g('p-tit'),tite:g('p-tite'),org:g('p-org'),date:g('p-date'),badge:g('p-badge'),badgeStyle:g('p-badge-style'),
+      bul:g('p-bul').split('\n').filter(l=>l.trim()),bule:g('p-bule').split('\n').filter(l=>l.trim()),
+      tags:g('p-tags').split(',').map(t=>t.trim()).filter(Boolean)};
+    if(!p.tit){toast('❌ Titre requis',true);return;}
+    D.projects.push(p);saveSection('prog-projects','',{projects:D.projects});renderAdmLists();
+    ['p-tit','p-tite','p-org','p-date','p-badge','p-bul','p-bule','p-tags'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
+  /* Skill */
+  document.getElementById('btn-add-sk').addEventListener('click',()=>{
+    const s={n:g('sk-n'),c:g('sk-c'),l:parseInt(g('sk-l'))||70};
+    if(!s.n){toast('❌ Nom requis',true);return;}
+    D.skills.push(s);saveSection('prog-skills','',{skills:D.skills});renderAdmLists();
+    ['sk-n','sk-c','sk-l'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
+  /* Tool */
+  document.getElementById('btn-add-tool').addEventListener('click',()=>{
+    const t=g('tk-n').trim();if(!t){toast('❌ Nom requis',true);return;}
+    if(!D.tools.includes(t))D.tools.push(t);
+    saveSection('prog-skills','',{tools:D.tools});renderAdmLists();
+    document.getElementById('tk-n').value='';
+  });
+
+  /* Edu */
+  document.getElementById('btn-add-edu').addEventListener('click',()=>{
+    const e={n:g('e-n'),o:g('e-o'),d:g('e-d')};if(!e.n){toast('❌ Intitulé requis',true);return;}
+    D.edu.push(e);saveSection('prog-parcours','',{edu:D.edu});renderAdmLists();
+    ['e-n','e-o','e-d'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
+  /* Cert */
+  document.getElementById('btn-add-cert').addEventListener('click',()=>{
+    const c={n:g('c-n'),o:g('c-o'),d:g('c-d')};if(!c.n){toast('❌ Nom requis',true);return;}
+    D.certs.push(c);saveSection('prog-parcours','',{certs:D.certs});renderAdmLists();
+    ['c-n','c-o','c-d'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+
+  /* Contact */
+  document.getElementById('btn-add-ct').addEventListener('click',()=>{
+    const c={type:g('ct-type'),lbl:g('ct-lbl'),lnk:g('ct-lnk')};
+    if(!c.lbl||!c.lnk){toast('❌ Libellé et lien requis',true);return;}
+    D.contacts.push(c);saveSection('prog-contact','',{contacts:D.contacts});renderAdmLists();
+    ['ct-lbl','ct-lnk'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  });
+}
+
+function updateGHStatus(){
+  const cfg=getGHConfig();const badge=document.getElementById('gh-status-badge');
+  if(cfg.token&&cfg.user&&cfg.repo){badge.className='github-status ok';badge.textContent=`✓ ${cfg.user}/${cfg.repo}`;}
+  else{badge.className='github-status none';badge.textContent='Non configuré';}
+}
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('open');
+  if(!logged){
+    document.getElementById('adm-login').style.display='flex';
+    document.getElementById('adm-content').style.display='none';
+    setTimeout(()=>{document.getElementById('adm-pw').focus();},100);
+  }
+}
+function closeAdmin(){document.getElementById('admin-overlay').classList.remove('open');}
+
+/* ═══ INIT ═══ */
+async function init(){
+  showLoading();
+  try{
+    const r=await fetch('./data.json?t='+Date.now());
+    if(r.ok){
+      const remote=await r.json();
+      /* Fusionner avec DEF pour garantir toutes les nouvelles clés */
+      D={...JSON.parse(JSON.stringify(DEF)),...remote};
+    }
+  }catch(e){
+    console.info('[Portfolio] Aucun data.json — données par défaut utilisées.');
+  }
+  render();
+  initAdminEvents();
+  document.getElementById('admin-trigger').addEventListener('click',openAdmin);
+  setTimeout(hideLoading,400);
+}
+init();
+</script>
+</body>
+</html>
